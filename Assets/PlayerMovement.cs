@@ -5,24 +5,76 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 3f;
-
+    
     Vector2 lastClickedPos;
 
     bool moving;
+    bool mouseDown = false;
+
+    void OnCollisionEnter(Collision collision)
+    {
+        moving = false;
+    }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) {
+            mouseDown = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            mouseDown = false;
+        }
+        if (mouseDown)
         {
             lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             moving = true;
         }
 
-        if (moving && (Vector2)transform.position!= lastClickedPos)
+        if (moving && (Vector2)transform.position != lastClickedPos)
         {
             float step = speed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, lastClickedPos,step);
+            transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
+
         }
-        else { moving = false; }
+        else
+        {
+            moving = false;
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* private void Update()
+{
+
+    if (Input.GetMouseButtonDown(0))
+    {
+        lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        moving = true;
+    }
+
+    if (moving && (Vector2)transform.position != lastClickedPos)
+    {
+        float step = speed * Time.deltaTime;
+
+        
+
+    }
+    else
+    {
+        moving = false;
+    }
+}
+
+}*/
