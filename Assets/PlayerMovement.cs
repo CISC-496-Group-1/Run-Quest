@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     bool moving;
     bool mouseDown = false;
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         moving = false;
     }
