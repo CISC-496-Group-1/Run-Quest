@@ -4,42 +4,60 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    public List<Character> characters;
+    public Hero playerHero;
+    public Enemy aiEnemy;
 
-    private int currentCharacterIndex = 0;
+    private bool isPlayerTurn;
 
     void Start()
     {
-        // Sort characters by Speed
-        characters.Sort((c1, c2) => c2.Speed.CompareTo(c1.Speed));
+        // Decide who starts first (for example, based on Speed)
+        isPlayerTurn = (playerHero.Speed >= aiEnemy.Speed);
+
         StartTurn();
     }
 
     void StartTurn()
     {
-        if (CheckForEndOfCombat())
+        if (isPlayerTurn)
         {
-            // End the combat
+            // Player's turn: Enable player input or UI controls
+            EnablePlayerInput();
+        }
+        else
+        {
+            // AI's turn: Call AI decision-making function
+            aiEnemy.ChooseAction(playerHero);
+
+            // End AI Turn after action is performed
+            EndTurn();
+        }
+    }
+
+    public void EndTurn()
+    {
+        // Check if the game has ended
+        if (playerHero.IsDefeated() || aiEnemy.IsDefeated())
+        {
+            GameOver(); // Implement game over logic
             return;
         }
 
-        Character currentCharacter = characters[currentCharacterIndex];
-        currentCharacter.Attack(characters[0]);
+        // Switch turn
+        isPlayerTurn = !isPlayerTurn;
 
-        currentCharacterIndex = (currentCharacterIndex + 1) % characters.Count;
-        Invoke(nameof(StartTurn), 1.0f); // Wait for 1 second between turns
+        // Start next turn
+        Invoke(nameof(StartTurn), 1.0f); // Delay for turn transition
     }
 
-    bool CheckForEndOfCombat()
+    void EnablePlayerInput()
     {
-        foreach (var character in characters)
-        {
-            if (character.IsDefeated())
-            {
-                Debug.Log("Combat Ended");
-                return true;
-            }
-        }
-        return false;
+        // Enable UI buttons or other input methods for the player to take action
+        // Player actions should trigger functions that ultimately call EndTurn()
+    }
+
+    void GameOver()
+    {
+        // Implement what happens when the game is over (display winner, restart, etc.)
     }
 }
