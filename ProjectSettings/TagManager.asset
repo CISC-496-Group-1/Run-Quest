@@ -11,6 +11,7 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
   - 
   - 
   - 
@@ -20,8 +21,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - TriggerBox
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Item
+    uniqueID: 187018965
+    locked: 0
+  - name: Player
+    uniqueID: 2381447901
     locked: 0
