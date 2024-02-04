@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 3f;
     public float maxTravelDistance = 10f; // Maximum distance the player can travel
-    private float currentTravelDistance; // Current available distance for travel
+    public float currentTravelDistance; // Current available distance for travel
+
+    public Text distanceText; 
 
     Vector2 lastClickedPos;
 
@@ -17,11 +20,15 @@ public class PlayerMovement : MonoBehaviour
     {
         // Initialize the current travel distance to the max at the start
         currentTravelDistance = maxTravelDistance;
+
+        // Initialize the distance text.
+        UpdateDistanceText();
     }
 
 
     private void Update()
     {
+
         // Check if the mouse is not over a UI element
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
@@ -74,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
             currentTravelDistance = 0;
 
         Debug.Log("Distance reduced. Current distance: " + currentTravelDistance);
+        UpdateDistanceText();
     }
 
     // Call this method to replenish the total distance
@@ -81,6 +89,13 @@ public class PlayerMovement : MonoBehaviour
     {
         currentTravelDistance = maxTravelDistance;
         Debug.Log("Distance replenished. Current distance: " + currentTravelDistance);
+        UpdateDistanceText();
+    }
+
+    private void UpdateDistanceText()
+    {
+        if (distanceText != null)
+            distanceText.text = "Distance: " + currentTravelDistance.ToString("F2"); // Format the distance display
     }
 
     void OnTriggerEnter2D(Collider2D collider)
