@@ -21,10 +21,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && currentTravelDistance > 0)
+        // Check if the mouse is not over a UI element
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            moving = true;
+            if (currentTravelDistance > 0)
+            {
+                lastClickedPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                moving = true;
+            }
         }
 
         if (moving && (Vector2)transform.position != lastClickedPos)
