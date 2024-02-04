@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateDistanceText()
     {
         if (distanceText != null)
-            distanceText.text = "Distance: " + currentTravelDistance.ToString("F2"); // Format the distance display
+            distanceText.text = "Distance: " + currentTravelDistance.ToString("F2") + " KM"; // Format the distance display
     }
 
     void OnTriggerEnter2D(Collider2D collider)
