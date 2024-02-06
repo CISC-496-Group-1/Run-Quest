@@ -18,9 +18,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        // Initialize the current travel distance to the max at the start
-        currentTravelDistance = maxTravelDistance;
-
         // Initialize the distance text.
         UpdateDistanceText();
     }
@@ -28,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        UpdateDistanceText();
 
         // Check if the mouse is not over a UI element
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -74,22 +72,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Call these methods to add travel distance
-    public void ReduceDistance(float amount)
+    public void AddDistance(float amount)
     {
-        currentTravelDistance -= amount;
-        if (currentTravelDistance < 0)
-            currentTravelDistance = 0;
+        currentTravelDistance += amount;
+        if (currentTravelDistance > maxTravelDistance)
+            currentTravelDistance = maxTravelDistance;
 
-        Debug.Log("Distance reduced. Current distance: " + currentTravelDistance);
-        UpdateDistanceText();
-    }
-
-    // Call this method to replenish the total distance
-    public void ReplenishDistance()
-    {
-        currentTravelDistance = maxTravelDistance;
-        Debug.Log("Distance replenished. Current distance: " + currentTravelDistance);
-        UpdateDistanceText();
+        Debug.Log("Distance added. Current distance: " + currentTravelDistance);
     }
 
     private void UpdateDistanceText()
