@@ -250,6 +250,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  maxTravelDistance: 10
+  currentTravelDistance: 0
+  distanceText: {fileID: 0}
 --- !u!61 &220048239
 BoxCollider2D:
   m_ObjectHideFlags: 0
