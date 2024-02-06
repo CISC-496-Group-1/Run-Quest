@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Hero
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -11,7 +13,6 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
   - 
   - 
   - 
@@ -21,7 +22,8 @@ TagManager:
   - 
   - 
   - 
-  - TriggerBox
+  - 
+  - 
   - 
   - 
   - 
@@ -41,9 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Item
-    uniqueID: 187018965
-    locked: 0
-  - name: Player
-    uniqueID: 2381447901
+  - name: UI
+    uniqueID: 4003424239
     locked: 0
