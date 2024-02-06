@@ -10,6 +10,8 @@ public class Sign : MonoBehaviour
     public string signText;
     private bool isPlayerInSign;
 
+    [SerializeField] private AudioSource readSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class Sign : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && isPlayerInSign)
         {
+            readSoundEffect.Play();
             dialogBoxText.text = signText;
             dialogBox.SetActive(true);
         }
