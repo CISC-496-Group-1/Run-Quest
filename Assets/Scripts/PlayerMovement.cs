@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
 
             // Decrease the available travel distance
-            currentTravelDistance -= step;
+            currentTravelDistance -= step * 0.25f;
 
             if (currentTravelDistance <= 0)
             {
