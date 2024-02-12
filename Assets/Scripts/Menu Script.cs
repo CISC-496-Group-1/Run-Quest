@@ -6,11 +6,9 @@ using UnityEngine.UI;
 public class MenuScript : MonoBehaviour
 {
     public GameObject menu;
-    private bool menuOn;
     // Start is called before the first frame update
     void Start()
     {
-        menuOn = false;
     }
 
     // Update is called once per frame
@@ -19,17 +17,15 @@ public class MenuScript : MonoBehaviour
 
     }
 
-    public void OnMouseDown()
+    public void MenuButtonClicked()
     {
-        if (menuOn)
-        {
-            menuOn = false;
-            menu.SetActive(false);
-        } else
-        {
-            menuOn = true;
-            menu.SetActive(true);
-        }
-        
+        gameObject.SetActive(false);
+        menu.SetActive(true);
+    }
+
+    public void HomeButtonClicked()
+    {
+        menu.SetActive(false);
+        gameObject.SetActive(true);
     }
 }
