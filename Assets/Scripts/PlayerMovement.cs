@@ -15,11 +15,17 @@ public class PlayerMovement : MonoBehaviour
     Vector2 lastClickedPos;
 
     bool moving;
+    private Animator animator;
 
     private void Start()
     {
         // Initialize the distance text.
         UpdateDistanceText();
+        
+    }
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
     }
 
 
@@ -38,11 +44,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (moving && (Vector2)transform.position != lastClickedPos)
-        {
+        {   
             float step = speed * Time.deltaTime;
+            animator.SetFloat("X", lastClickedPos.x);
+            animator.SetFloat("Y", lastClickedPos.y);
 
             // Calculate the distance that will be moved this frame
             float distanceToMove = Vector2.Distance(transform.position, lastClickedPos);
+
             if (step > distanceToMove)
             {
                 step = distanceToMove; // Ensure we don't move beyond the target
