@@ -46,8 +46,7 @@ public class PlayerMovement : MonoBehaviour
         if (moving && (Vector2)transform.position != lastClickedPos)
         {   
             float step = speed * Time.deltaTime;
-            animator.SetFloat("X", lastClickedPos.x);
-            animator.SetFloat("Y", lastClickedPos.y);
+            
 
             // Calculate the distance that will be moved this frame
             float distanceToMove = Vector2.Distance(transform.position, lastClickedPos);
@@ -64,7 +63,8 @@ public class PlayerMovement : MonoBehaviour
             }
 
             transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
-
+            animator.SetFloat("X", lastClickedPos.x - transform.position.x);
+            animator.SetFloat("Y", lastClickedPos.y - transform.position.y);
             // Decrease the available travel distance
             currentTravelDistance -= step * 0.25f;
 
