@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AttackScript : MonoBehaviour
 {
@@ -49,6 +50,10 @@ public class AttackScript : MonoBehaviour
             damage = Mathf.Max(0, damage - (defenseMultiplier * targetStats.defense));
             owner.GetComponent<Animator>().Play(animationName);
             targetStats.ReceiveDamage(Mathf.CeilToInt(damage));
+            if (targetStats.health <= 0)
+            {
+                SceneManager.LoadScene("zhoujun 1");
+            }
             attackerStats.updateMagicFill(magicCost);
         } else
         {

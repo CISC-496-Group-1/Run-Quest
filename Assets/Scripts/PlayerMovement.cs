@@ -18,9 +18,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        // Initialize the distance text.
         UpdateDistanceText();
+
+        if (SceneTransition.playerPositionBeforeSceneChange != Vector3.zero)
+        {
+            transform.position = SceneTransition.playerPositionBeforeSceneChange;
+            SceneTransition.playerPositionBeforeSceneChange = Vector3.zero; // Reset the position
+        }
     }
+
 
 
     private void Update()
