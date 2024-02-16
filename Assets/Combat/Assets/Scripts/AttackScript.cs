@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -52,6 +52,8 @@ public class AttackScript : MonoBehaviour
             targetStats.ReceiveDamage(Mathf.CeilToInt(damage));
             if (targetStats.health <= 0)
             {
+                GameManager.Instance.DefeatEnemy(victim.name);
+
                 SceneManager.LoadScene("zhoujun 1");
             }
             attackerStats.updateMagicFill(magicCost);

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        currentTravelDistance = PlayerPrefs.GetFloat("PlayerDistance", 0f);
         UpdateDistanceText();
 
         if (SceneTransition.playerPositionBeforeSceneChange != Vector3.zero)
@@ -27,6 +28,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        //Save distance before scene switching
+        PlayerPrefs.SetFloat("PlayerDistance", currentTravelDistance);
+        PlayerPrefs.Save();
+    }
 
 
     private void Update()
