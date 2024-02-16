@@ -21,34 +21,39 @@ public class Sign : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence)
     {
+        // Display the entire block of text immediately
+        dialogBoxText.text = sentence;
+
+        // Check if the entire text fits within the dialog box or if we need pagination
         int maxChars = 200; // Example max char count that fits in the dialog box
-        for (int i = 0; i < sentence.Length; i += maxChars)
+        if (sentence.Length > maxChars)
         {
-            // Determine the substring to display
-            string segment = sentence.Substring(i, Math.Min(maxChars, sentence.Length - i));
-            dialogBoxText.text = ""; // Clear previous text
-            foreach (char letter in segment.ToCharArray())
+            // Determine how many pages we have
+            int numberOfPages = Mathf.CeilToInt((float)sentence.Length / maxChars);
+            for (int page = 1; page < numberOfPages; page++)
             {
-                dialogBoxText.text += letter;
-                yield return new WaitForSeconds(0.05f); // Adjust typing speed as needed
-            }
-            
-            // Wait for mouse click to continue if not at the end of the sentence
-            if (i + maxChars < sentence.Length)
-            {
-                yield return new WaitUntil(() => Input.GetMouseButtonDown(0)); // Wait for left mouse click
+                // Wait for mouse click to continue to the next page
+                yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+                // Display the next segment of text
+                string segment = sentence.Substring(page * maxChars, Math.Min(maxChars, sentence.Length - page * maxChars));
+                dialogBoxText.text = segment;
             }
         }
+
+        // Optionally, wait for one final click before closing the dialogue box
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
     }
 
 
 
-    // Update is called once per frame
+
+
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && isPlayerInSign)
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerInSign)
         {
-            if(!dialogBox.activeInHierarchy)
+            if (!dialogBox.activeInHierarchy)
             {
                 dialogBox.SetActive(true);
                 StartCoroutine(TypeSentence(signText));
@@ -57,6 +62,7 @@ public class Sign : MonoBehaviour
             else
             {
                 dialogBox.SetActive(false);
+                // Other code to handle the end of the dialogue, if any
             }
         }
     }

@@ -20420,6 +20420,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2136149417}
     - target: {fileID: 3124334822890068247, guid: 417d2bac1a54a084abc647bcd91654a6, type: 3}
+      propertyPath: dialogText
+      value: 
+      objectReference: {fileID: 1943023115}
+    - target: {fileID: 3124334822890068247, guid: 417d2bac1a54a084abc647bcd91654a6, type: 3}
       propertyPath: dialogBoxText
       value: 
       objectReference: {fileID: 1943023115}
@@ -20734,6 +20738,10 @@ PrefabInstance:
       propertyPath: dialogBox
       value: 
       objectReference: {fileID: 2136149417}
+    - target: {fileID: 3124334822890068247, guid: 417d2bac1a54a084abc647bcd91654a6, type: 3}
+      propertyPath: dialogText
+      value: 
+      objectReference: {fileID: 1943023115}
     - target: {fileID: 3124334822890068247, guid: 417d2bac1a54a084abc647bcd91654a6, type: 3}
       propertyPath: dialogBoxText
       value: 
