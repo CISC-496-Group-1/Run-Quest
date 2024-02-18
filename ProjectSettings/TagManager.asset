@@ -9,6 +9,7 @@ TagManager:
   - Dead
   - Monster
   - Ghost
+  - Teleporter
   layers:
   - Default
   - TransparentFX
