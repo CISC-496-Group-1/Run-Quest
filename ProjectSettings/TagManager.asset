@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Dead
   - Monster
+  - Ghost
   layers:
   - Default
   - TransparentFX
