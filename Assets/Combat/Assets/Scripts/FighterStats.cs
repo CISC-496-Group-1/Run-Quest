@@ -17,7 +17,11 @@ public class FighterStats : MonoBehaviour, IComparable
 
     [Header("Stats")]
     public float health;
+    public float healthMin;
+    public float healthMax;
     public float magic;
+    public float magicMin;
+    public float magicMax;
     public float melee;
     public float magicRange;
     public float defense;
@@ -52,10 +56,27 @@ public class FighterStats : MonoBehaviour, IComparable
         magicTransform = magicFill.GetComponent<RectTransform>();
         magicScale = magicFill.transform.localScale;
 
+        // Initialize stats with RNG for enemies only
+        if (gameObject.tag == "Enemy")
+        {
+            InitializeRandomStats();
+        }
+
         startHealth = health;
         startMagic = magic;
 
         GameControllerObj = GameObject.Find("GameControllerObject");
+    }
+
+    void InitializeRandomStats()
+    {
+        health = UnityEngine.Random.Range(healthMin, healthMax); // Random health between 50 and 100
+        magic = UnityEngine.Random.Range(magicMin, magicMax); // Random magic between 20 and 50
+        melee = UnityEngine.Random.Range(10f, 20f); // Random melee attack power between 10 and 20
+        magicRange = UnityEngine.Random.Range(5f, 15f); // Random magic range attack power between 5 and 15
+        defense = UnityEngine.Random.Range(5f, 10f); // Random defense between 5 and 10
+        speed = UnityEngine.Random.Range(1f, 10f); // Random speed between 1 and 10
+        experience = 0f; // Experience can be set to 0 or another starting value
     }
 
     public void ReceiveDamage(float damage)

@@ -1047,11 +1047,15 @@ MonoBehaviour:
   healthFill: {fileID: 1791707663}
   magicFill: {fileID: 158736533}
   health: 100
+  healthMin: 50
+  healthMax: 100
   magic: 10
+  magicMin: 0
+  magicMax: 50
   melee: 20
   magicRange: 1
   defense: 10
-  speed: 4
+  speed: 6
   experience: 2
   nextActTurn: 0
 --- !u!114 &687116294
@@ -1884,6 +1888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleMenu: {fileID: 928594325}
+  enemyPrefabs: []
   battleText: {fileID: 148200429}
 --- !u!4 &1122030233
 Transform:
@@ -2012,10 +2017,14 @@ MonoBehaviour:
   healthFill: {fileID: 912270450}
   magicFill: {fileID: 1343418749}
   health: 100
+  healthMin: 0
+  healthMax: 0
   magic: 50
+  magicMin: 0
+  magicMax: 0
   melee: 20
   magicRange: 3
-  defense: 5
+  defense: 10
   speed: 6
   experience: 10
   nextActTurn: 0
