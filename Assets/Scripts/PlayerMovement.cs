@@ -63,10 +63,19 @@ public class PlayerMovement : MonoBehaviour
             }
 
             transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
-            animator.SetFloat("X", lastClickedPos.x - transform.position.x);
-            animator.SetFloat("Y", lastClickedPos.y - transform.position.y);
-            // Decrease the available travel distance
-            currentTravelDistance -= step * 0.25f;
+            if (lastClickedPos.x - transform.position.x != 0 || lastClickedPos.y - transform.position.y != 0)
+            {
+                animator.SetFloat("X", lastClickedPos.x - transform.position.x);
+                animator.SetFloat("Y", lastClickedPos.y - transform.position.y);
+
+                animator.SetBool("isWalking", true);
+            }
+            else { animator.SetBool("isWalking", false); }
+
+
+
+                // Decrease the available travel distance
+                currentTravelDistance -= step * 0.25f;
 
             if (currentTravelDistance <= 0)
             {
