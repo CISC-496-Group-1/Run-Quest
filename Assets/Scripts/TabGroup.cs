@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
 public class TabGroup : MonoBehaviour
 {
     public List<TabButton> buttons;
-
-    public Color hoverColor;
-    public Color selectedColor;
-    public Color idleColor;
+    public TabButton selectedTab;
+    public List<GameObject> tabs;
 
     public void AddNewButton(TabButton button)
     {
@@ -24,26 +21,28 @@ public class TabGroup : MonoBehaviour
 
     public void OnTabEnter( TabButton button)
     {
-        ResetColors();
-        button.GetComponent<Image>().color = hoverColor;
+
     }
 
     public void OnTabExit ( TabButton button) 
     {
-        ResetColors();
+
     }
 
     public void OnTabSelected (TabButton button )
     {
-        ResetColors();
-        button.GetComponent<Image>().color = selectedColor;
-    }
-
-    public void ResetColors()
-    {
-        foreach (TabButton button in buttons)
+        selectedTab = button;
+        int index = button.transform.GetSiblingIndex();
+        for (int i = 0; i < tabs.Count; i++)
         {
-            button.GetComponent<Image>().color = idleColor;
+            if (i == index)
+            {
+                tabs[i].SetActive(true);
+            } else
+            {
+                tabs[i].SetActive(false);
+            }
         }
     }
+
 }

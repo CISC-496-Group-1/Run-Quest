@@ -8,8 +8,6 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 {
     public TabGroup tabgroup;
 
-    public Image background;
-
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         tabgroup.OnTabSelected(this);
@@ -28,7 +26,6 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     // Start is called before the first frame update
     void Start()
     {
-        background = GetComponent<Image>();
         tabgroup.AddNewButton(this);
     }
 
