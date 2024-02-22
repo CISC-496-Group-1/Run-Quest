@@ -29,9 +29,4 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
         tabgroup.AddNewButton(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
