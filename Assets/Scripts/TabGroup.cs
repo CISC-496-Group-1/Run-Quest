@@ -19,16 +19,6 @@ public class TabGroup : MonoBehaviour
         buttons.Add(button);
     }
 
-    public void OnTabEnter( TabButton button)
-    {
-
-    }
-
-    public void OnTabExit ( TabButton button) 
-    {
-
-    }
-
     public void OnTabSelected (TabButton button )
     {
         selectedTab = button;

@@ -18,28 +18,22 @@ public class PlayerStats : MonoBehaviour
         speed = 1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void addStrength(int amountToAdd)
+    public void addStrength(int amountToAdd)
     {
         strength += amountToAdd;
     }
 
-    void addDefense(int amountToAdd)
+    public void addDefense(int amountToAdd)
     {
         defense += amountToAdd;
     }
 
-    void addMagicDamage(int amountToAdd)
+    public void addMagicDamage(int amountToAdd)
     {
         magicDamage += amountToAdd;
     }
 
-    void addSpeed(int amountToAdd) {
+    public void addSpeed(int amountToAdd) {
         speed += amountToAdd;
     }
 }

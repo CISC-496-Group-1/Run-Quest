@@ -1,18 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class JournalSim : MonoBehaviour
+public class JournalSim : MonoBehaviour, IPointerClickHandler
 {
-    
-    void Start()
+    public GameObject player;
+    public List<GameObject> quests;
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        
+        throw new NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+    }
+
+    public void AddQuest(GameObject quest) {
+        quests.Add(quest);
     }
 }

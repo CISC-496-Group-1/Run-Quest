@@ -15,12 +15,12 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        tabgroup.OnTabEnter(this);
+
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        tabgroup.OnTabExit(this);
+
     }
 
     // Start is called before the first frame update
