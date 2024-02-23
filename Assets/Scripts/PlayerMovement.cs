@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (moving && (Vector2)transform.position != lastClickedPos)
+        if (moving && (Vector2)transform.position != lastClickedPos && currentTravelDistance >0.001)
         {   
             float step = speed * Time.deltaTime;
             
@@ -86,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             moving = false;
+            animator.SetBool("isWalking", false);
         }
     }
 
