@@ -15,24 +15,17 @@ public class PlayerMovement : MonoBehaviour
     Vector2 lastClickedPos;
 
     bool moving;
+    private Animator animator;
 
     private void Start()
     {
-        currentTravelDistance = PlayerPrefs.GetFloat("PlayerDistance", 0f);
+        // Initialize the distance text.
         UpdateDistanceText();
-
-        if (SceneTransition.playerPositionBeforeSceneChange != Vector3.zero)
-        {
-            transform.position = SceneTransition.playerPositionBeforeSceneChange;
-            SceneTransition.playerPositionBeforeSceneChange = Vector3.zero; // Reset the position
-        }
+        
     }
-
-    private void OnDisable()
+    private void Awake()
     {
-        //Save distance before scene switching
-        PlayerPrefs.SetFloat("PlayerDistance", currentTravelDistance);
-        PlayerPrefs.Save();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -50,12 +43,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (moving && (Vector2)transform.position != lastClickedPos)
-        {
+        if (moving && (Vector2)transform.position != lastClickedPos && currentTravelDistance >0.001)
+        {   
             float step = speed * Time.deltaTime;
+            
 
             // Calculate the distance that will be moved this frame
             float distanceToMove = Vector2.Distance(transform.position, lastClickedPos);
+
             if (step > distanceToMove)
             {
                 step = distanceToMove; // Ensure we don't move beyond the target
@@ -68,9 +63,19 @@ public class PlayerMovement : MonoBehaviour
             }
 
             transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
+            if (lastClickedPos.x - transform.position.x != 0 || lastClickedPos.y - transform.position.y != 0)
+            {
+                animator.SetFloat("X", lastClickedPos.x - transform.position.x);
+                animator.SetFloat("Y", lastClickedPos.y - transform.position.y);
 
-            // Decrease the available travel distance
-            currentTravelDistance -= step * 0.25f;
+                animator.SetBool("isWalking", true);
+            }
+            else { animator.SetBool("isWalking", false); }
+
+
+
+                // Decrease the available travel distance
+                currentTravelDistance -= step * 0.25f;
 
             if (currentTravelDistance <= 0)
             {
@@ -81,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             moving = false;
+            animator.SetBool("isWalking", false);
         }
     }
 
