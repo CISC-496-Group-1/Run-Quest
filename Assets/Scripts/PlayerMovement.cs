@@ -15,11 +15,24 @@ public class PlayerMovement : MonoBehaviour
     Vector2 lastClickedPos;
 
     bool moving;
+    private Animator animator;
+
+    private LogScript log;
+    private PlayerStats stats;
 
     private void Start()
     {
         // Initialize the distance text.
         UpdateDistanceText();
+
+        log = GetComponent<LogScript>();
+        stats = GetComponent<PlayerStats>();
+
+        
+    }
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
     }
 
 
@@ -37,12 +50,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (moving && (Vector2)transform.position != lastClickedPos)
-        {
+        if (moving && (Vector2)transform.position != lastClickedPos && currentTravelDistance >0.001)
+        {   
             float step = speed * Time.deltaTime;
+            
 
             // Calculate the distance that will be moved this frame
             float distanceToMove = Vector2.Distance(transform.position, lastClickedPos);
+
             if (step > distanceToMove)
             {
                 step = distanceToMove; // Ensure we don't move beyond the target
@@ -55,9 +70,19 @@ public class PlayerMovement : MonoBehaviour
             }
 
             transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
+            if (lastClickedPos.x - transform.position.x != 0 || lastClickedPos.y - transform.position.y != 0)
+            {
+                animator.SetFloat("X", lastClickedPos.x - transform.position.x);
+                animator.SetFloat("Y", lastClickedPos.y - transform.position.y);
 
-            // Decrease the available travel distance
-            currentTravelDistance -= step * 0.25f;
+                animator.SetBool("isWalking", true);
+            }
+            else { animator.SetBool("isWalking", false); }
+
+
+
+                // Decrease the available travel distance
+                currentTravelDistance -= step * 0.25f;
 
             if (currentTravelDistance <= 0)
             {
@@ -68,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             moving = false;
+            animator.SetBool("isWalking", false);
         }
     }
 
@@ -79,6 +105,20 @@ public class PlayerMovement : MonoBehaviour
             currentTravelDistance = maxTravelDistance;
 
         Debug.Log("Distance added. Current distance: " + currentTravelDistance);
+
+       if (amount == 1.0f)
+        {
+            log.CreateNewLog(1);
+            stats.GenerateStats(1, 3);
+            
+        } else if (amount == 2.0f) {
+            log.CreateNewLog(2);
+            stats.GenerateStats(3, 5);
+        } else
+        {
+            log.CreateNewLog(3);
+            stats.GenerateStats(5, 7);
+        }
     }
 
     private void UpdateDistanceText()
