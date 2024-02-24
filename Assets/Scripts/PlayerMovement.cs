@@ -17,10 +17,17 @@ public class PlayerMovement : MonoBehaviour
     bool moving;
     private Animator animator;
 
+    private LogScript log;
+    private PlayerStats stats;
+
     private void Start()
     {
         // Initialize the distance text.
         UpdateDistanceText();
+
+        log = GetComponent<LogScript>();
+        stats = GetComponent<PlayerStats>();
+
         
     }
     private void Awake()
@@ -98,6 +105,20 @@ public class PlayerMovement : MonoBehaviour
             currentTravelDistance = maxTravelDistance;
 
         Debug.Log("Distance added. Current distance: " + currentTravelDistance);
+
+       if (amount == 1.0f)
+        {
+            log.CreateNewLog(1);
+            stats.GenerateStats(1, 3);
+            
+        } else if (amount == 2.0f) {
+            log.CreateNewLog(2);
+            stats.GenerateStats(3, 5);
+        } else
+        {
+            log.CreateNewLog(3);
+            stats.GenerateStats(5, 7);
+        }
     }
 
     private void UpdateDistanceText()
