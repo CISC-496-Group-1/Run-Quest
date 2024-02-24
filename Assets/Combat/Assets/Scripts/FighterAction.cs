@@ -17,6 +17,9 @@ public class FighterAction : MonoBehaviour
     [SerializeField]
     private Sprite faceIcon;
 
+    [SerializeField]
+    private AudioSource attackSoundEffect;
+
     private GameObject currentAttack;
     
     void Awake()
@@ -31,6 +34,17 @@ public class FighterAction : MonoBehaviour
         {
             victim = enemy;
         }
+
+        if (attackSoundEffect != null) // Null check for attackSoundEffect
+        {
+        attackSoundEffect.Play(); // Play the sound effect if it's not null
+        }
+
+        else
+        {
+        Debug.LogWarning("attackSoundEffect is not assigned in the inspector");
+        }
+
         if (btn.CompareTo("melee") == 0)
         {
             meleePrefab.GetComponent<AttackScript>().Attack(victim);

@@ -17,12 +17,27 @@ public class FighterStats : MonoBehaviour, IComparable
 
     [Header("Stats")]
     public float health;
+    public float healthMin;
+    public float healthMax;
+
     public float magic;
+    public float magicMin;
+    public float magicMax;
+
     public float melee;
+    public float meleeMin;
+    public float meleeMax;
+
     public float magicRange;
+
     public float defense;
+    public float defenseMin;
+    public float defenseMax;
+
     public float speed;
     public float experience;
+    public float experienceMin;
+    public float experienceMax;
 
     private float startHealth;
     private float startMagic;
@@ -52,10 +67,27 @@ public class FighterStats : MonoBehaviour, IComparable
         magicTransform = magicFill.GetComponent<RectTransform>();
         magicScale = magicFill.transform.localScale;
 
+        // Initialize stats with RNG for enemies only
+        if (gameObject.tag == "Enemy")
+        {
+            InitializeRandomStats();
+        }
+
         startHealth = health;
         startMagic = magic;
 
         GameControllerObj = GameObject.Find("GameControllerObject");
+    }
+
+    void InitializeRandomStats()
+    {
+        health = UnityEngine.Random.Range(healthMin, healthMax); // Random health between 50 and 100
+        magic = UnityEngine.Random.Range(magicMin, magicMax); // Random magic between 20 and 50
+        melee = UnityEngine.Random.Range(meleeMin, meleeMax); // Random melee attack power between 10 and 20
+        magicRange = UnityEngine.Random.Range(5f, 15f); // Random magic range attack power between 5 and 15
+        defense = UnityEngine.Random.Range(defenseMin, defenseMax); // Random defense between 5 and 10
+        speed = UnityEngine.Random.Range(1f, 10f); // Random speed between 1 and 10
+        experience = UnityEngine.Random.Range(experienceMin, experienceMax); // Experience can be set to 0 or another starting value
     }
 
     public void ReceiveDamage(float damage)
@@ -105,7 +137,7 @@ public class FighterStats : MonoBehaviour, IComparable
     }
     public void CalculateNextTurn(int currentTurn)
     {
-        nextActTurn = currentTurn + Mathf.CeilToInt(100f / speed);
+        //nextActTurn = currentTurn + Mathf.CeilToInt(100f / speed);
     }
 
     public int CompareTo(object otherStats)

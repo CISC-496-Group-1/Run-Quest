@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     private GameObject battleMenu;
-
+    public List<GameObject> enemyPrefabs;
     public Text battleText;
 
     private void Awake()
