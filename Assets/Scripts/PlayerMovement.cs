@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
             distanceText.text = "Distance: " + currentTravelDistance.ToString("F2") + " KM"; // Format the distance display
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         moving = false;
     }
