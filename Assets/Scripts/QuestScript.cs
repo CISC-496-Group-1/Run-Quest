@@ -18,5 +18,6 @@ public class QuestScript : MonoBehaviour
         stats.addMagicDamage(Random.Range(1, 3));
         stats.addSpeed(Random.Range(1, 3));
         Destroy(gameObject);
+        stats.updatePlayerStats();
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerStats : MonoBehaviour
     public int defense;
     public int magicDamage;
     public int speed;
+
+    public Text playerText;
 
     void Start()
     {
@@ -35,5 +38,10 @@ public class PlayerStats : MonoBehaviour
 
     public void addSpeed(int amountToAdd) {
         speed += amountToAdd;
+    }
+
+    public void updatePlayerStats()
+    {
+        playerText.text = "Strength: " + strength + "\nDefence: " + defense + "\nMagic Damage: " + magicDamage + "\nSpeed: " + speed; 
     }
 }
