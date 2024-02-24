@@ -11,7 +11,8 @@ public class SceneTransition : MonoBehaviour
     public Text dialogBoxText; 
     public string[] dialogues; 
     public string sceneToLoad; 
-    public float typingSpeed = 0.02f; 
+    public float typingSpeed = 0.02f;
+    public GameObject Player;
 
     private Queue<string> dialogueQueue = new Queue<string>(); 
     private bool isDialogueActive = false; 

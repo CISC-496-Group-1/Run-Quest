@@ -54,7 +54,7 @@ public class AttackScript : MonoBehaviour
             {
                 GameManager.Instance.DefeatEnemy(victim.name);
 
-                SceneManager.LoadScene("zhoujun 1");
+                SceneManager.LoadScene("MergerDEMO");
             }
             attackerStats.updateMagicFill(magicCost);
         } else

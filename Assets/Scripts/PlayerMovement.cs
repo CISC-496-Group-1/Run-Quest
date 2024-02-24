@@ -24,12 +24,28 @@ public class PlayerMovement : MonoBehaviour
     {
         // Initialize the distance text.
         UpdateDistanceText();
+        currentTravelDistance = PlayerPrefs.GetFloat("PlayerDistance", 0f);
+
+        if (SceneTransition.playerPositionBeforeSceneChange != Vector3.zero)
+        {
+            transform.position = SceneTransition.playerPositionBeforeSceneChange;
+            SceneTransition.playerPositionBeforeSceneChange = Vector3.zero; // Reset the position
+        }
+
 
         log = GetComponent<LogScript>();
         stats = GetComponent<PlayerStats>();
 
         
     }
+
+    private void OnDisable()
+    {
+        //Save distance before scene switching
+        PlayerPrefs.SetFloat("PlayerDistance", currentTravelDistance);
+        PlayerPrefs.Save();
+    }
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
