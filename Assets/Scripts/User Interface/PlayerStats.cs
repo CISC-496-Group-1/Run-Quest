@@ -44,4 +44,13 @@ public class PlayerStats : MonoBehaviour
     {
         playerText.text = "Strength: " + strength + "\nDefence: " + defense + "\nMagic Damage: " + magicDamage + "\nSpeed: " + speed; 
     }
+
+    public void GenerateStats(int min, int max)
+    {
+        addStrength(Random.Range(min, max));
+        addDefense(Random.Range(min, max));
+        addMagicDamage(Random.Range(min, max));
+        addSpeed(Random.Range(min, max));
+        updatePlayerStats();
+    }
 }
