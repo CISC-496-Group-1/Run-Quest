@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 687116294}
   - component: {fileID: 687116295}
   m_Layer: 0
-  m_Name: giant
+  m_Name: dragon
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

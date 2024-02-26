@@ -5,10 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/zhoujun 1.unity
+  - enabled: 0
+    path: Assets/Scenes/PreDemoBuilds/zhoujun 1.unity
     guid: 2440d447d4504374fad63aa365fb41db
   - enabled: 1
     path: Assets/Scenes/combat.unity
     guid: a65cd7ee90f8f0a4bb08e93a5849bcac
+  - enabled: 1
+    path: Assets/Scenes/MergerDEMO.unity
+    guid: 5dd0017d3d08bef4cbe39f44368b48f0
+  - enabled: 1
+    path: Assets/Scenes/combat Ghost.unity
+    guid: 66f529f8e5b90bf468d3ce9b2cadcc32
+  - enabled: 1
+    path: Assets/Scenes/combat Boar.unity
+    guid: 95239342d647e33439e5cdeb5d443324
+  - enabled: 1
+    path: Assets/Scenes/combat Yeti.unity
+    guid: be65632705db1f5419df8b6e2724e02b
+  - enabled: 1
+    path: Assets/Scenes/combat Squid.unity
+    guid: 5022a3c2b7fdc0648abe40b92f76a3e2
+  - enabled: 1
+    path: Assets/Scenes/combat Dragon.unity
+    guid: 5f369be33a9f32148b6e4b922c2daecf
   m_configObjects: {}
