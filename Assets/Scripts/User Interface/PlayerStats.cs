@@ -19,13 +19,14 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        if (QuickSaveReader.RootExists("Stats"))
+        if (!QuickSaveReader.RootExists("Stats"))
         {
             writer = QuickSaveWriter.Create("Stats");
             writer.Write("Strength", 1);
             writer.Write("Defense", 1);
             writer.Write("Magic Damage", 1);
             writer.Write("Speed", 1);
+            writer.Commit();
         }
         writer = QuickSaveWriter.Create("Stats");
         reader = QuickSaveReader.Create("Stats");
@@ -34,25 +35,36 @@ public class PlayerStats : MonoBehaviour
         defense = reader.Read<int>("Defense");
         magicDamage = reader.Read<int>("Magic Damage");
         speed = reader.Read<int>("Speed");
+
+
+        updatePlayerStats();
     }
 
     public void addStrength(int amountToAdd)
     {
         strength += amountToAdd;
+        writer.Write("Strength", strength);
+        writer.Commit();
     }
 
     public void addDefense(int amountToAdd)
     {
         defense += amountToAdd;
+        writer.Write("Defense", defense);
+        writer.Commit();
     }
 
     public void addMagicDamage(int amountToAdd)
     {
         magicDamage += amountToAdd;
+        writer.Write("Magic Damage", magicDamage);
+        writer.Commit();
     }
 
     public void addSpeed(int amountToAdd) {
         speed += amountToAdd;
+        writer.Write("Speed", speed);
+        writer.Commit();
     }
 
     public void updatePlayerStats()
