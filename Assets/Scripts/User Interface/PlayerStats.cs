@@ -7,10 +7,10 @@ using CI.QuickSave;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int strength;
-    public int defense;
-    public int magicDamage;
-    public int speed;
+    public static int strength;
+    public static int defense;
+    public static int magicDamage;
+    public static int speed;
 
     public Text playerText;
 
