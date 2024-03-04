@@ -81764,7 +81764,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 475299105854784035, guid: 628e0db82ee49564197aa029c3803ad1, type: 3}
       propertyPath: signText
-      value: Welcome To RunQuest. Boutines of Loot and Many Battles Await You! Record
+      value: Welcome To RunQuest. Bounties of Loot and Many Battles Await You! Record
         a Run on strava to get moving!
       objectReference: {fileID: 0}
     - target: {fileID: 475299105854784035, guid: 628e0db82ee49564197aa029c3803ad1, type: 3}
