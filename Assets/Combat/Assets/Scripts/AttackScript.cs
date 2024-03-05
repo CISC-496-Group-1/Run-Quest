@@ -32,6 +32,8 @@ public class AttackScript : MonoBehaviour
     private FighterStats targetStats;
     private float damage = 0.0f;
     
+
+
     public void Attack(GameObject victim)
     {
         attackerStats = owner.GetComponent<FighterStats>();

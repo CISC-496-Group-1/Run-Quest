@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
 
     public void NextTurn()
     {
+        this.battleMenu.SetActive(false);
         battleText.gameObject.SetActive(false);
         FighterStats currentFighterStats = fighterStats[0];
         fighterStats.Remove(currentFighterStats);
@@ -51,6 +52,7 @@ public class GameController : MonoBehaviour
             if(currentUnit.tag == "Hero")
             {
                 this.battleMenu.SetActive(true);
+                MakeButton.ResetAllButtons();
             } else
             {
                 this.battleMenu.SetActive(false);
