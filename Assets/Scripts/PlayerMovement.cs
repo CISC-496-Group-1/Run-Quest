@@ -14,7 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 lastClickedPos;
 
-    bool moving;
+    public bool moving;
+    public bool ableToMove = true;
     private Animator animator;
 
     private LogScript log;
@@ -66,50 +67,53 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (moving && (Vector2)transform.position != lastClickedPos && currentTravelDistance >0.001)
-        {   
-            float step = speed * Time.deltaTime;
-            
-
-            // Calculate the distance that will be moved this frame
-            float distanceToMove = Vector2.Distance(transform.position, lastClickedPos);
-
-            if (step > distanceToMove)
+        if (ableToMove)
+        {
+            if (moving && (Vector2)transform.position != lastClickedPos && currentTravelDistance > 0.001)
             {
-                step = distanceToMove; // Ensure we don't move beyond the target
-            }
+                float step = speed * Time.deltaTime;
 
-            if (step > currentTravelDistance)
-            {
-                step = currentTravelDistance; // Ensure we don't move beyond the available distance
-                moving = false; // Stop moving if we have reached the travel limit
-            }
 
-            transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
-            if (lastClickedPos.x - transform.position.x != 0 || lastClickedPos.y - transform.position.y != 0)
-            {
-                animator.SetFloat("X", lastClickedPos.x - transform.position.x);
-                animator.SetFloat("Y", lastClickedPos.y - transform.position.y);
+                // Calculate the distance that will be moved this frame
+                float distanceToMove = Vector2.Distance(transform.position, lastClickedPos);
 
-                animator.SetBool("isWalking", true);
-            }
-            else { animator.SetBool("isWalking", false); }
+                if (step > distanceToMove)
+                {
+                    step = distanceToMove; // Ensure we don't move beyond the target
+                }
+
+                if (step > currentTravelDistance)
+                {
+                    step = currentTravelDistance; // Ensure we don't move beyond the available distance
+                    moving = false; // Stop moving if we have reached the travel limit
+                }
+
+                transform.position = Vector2.MoveTowards(transform.position, lastClickedPos, step);
+                if (lastClickedPos.x - transform.position.x != 0 || lastClickedPos.y - transform.position.y != 0)
+                {
+                    animator.SetFloat("X", lastClickedPos.x - transform.position.x);
+                    animator.SetFloat("Y", lastClickedPos.y - transform.position.y);
+
+                    animator.SetBool("isWalking", true);
+                }
+                else { animator.SetBool("isWalking", false); }
 
 
 
                 // Decrease the available travel distance
                 currentTravelDistance -= step * 0.25f;
 
-            if (currentTravelDistance <= 0)
+                if (currentTravelDistance <= 0)
+                {
+                    moving = false;
+                    currentTravelDistance = 0;
+                }
+            }
+            else
             {
                 moving = false;
-                currentTravelDistance = 0;
+                animator.SetBool("isWalking", false);
             }
-        }
-        else
-        {
-            moving = false;
-            animator.SetBool("isWalking", false);
         }
     }
 
