@@ -14,6 +14,7 @@ TagManager:
   - Squid
   - Yeti
   - Dragon
+  - Item
   layers:
   - Default
   - TransparentFX

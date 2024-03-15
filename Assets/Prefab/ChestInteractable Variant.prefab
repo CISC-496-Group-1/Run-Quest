@@ -80,20 +80,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 475299105854784035, guid: 628e0db82ee49564197aa029c3803ad1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5922930377278626737, guid: 628e0db82ee49564197aa029c3803ad1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7884810095998419827}
+      addedObject: {fileID: -712932298839617986}
   m_SourcePrefab: {fileID: 100100000, guid: 628e0db82ee49564197aa029c3803ad1, type: 3}
+--- !u!82 &1759326615377214350 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2939634712148734252, guid: 628e0db82ee49564197aa029c3803ad1, type: 3}
+  m_PrefabInstance: {fileID: 3504306347224763042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7103220883957387539 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5922930377278626737, guid: 628e0db82ee49564197aa029c3803ad1, type: 3}
   m_PrefabInstance: {fileID: 3504306347224763042}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7884810095998419827
+--- !u!114 &-712932298839617986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,3 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf4e787b96864e4e83057c78c9b088b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  i: {fileID: 0}
+  dialogBox: {fileID: 0}
+  dialogBoxText: {fileID: 0}
+  signText: 
+  readSoundEffect: {fileID: 1759326615377214350}

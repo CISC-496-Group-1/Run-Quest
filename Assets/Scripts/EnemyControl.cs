@@ -52,6 +52,17 @@ public class EnemyControl : MonoBehaviour
             }
         }
 
+        if (GameManager.Instance.IsEnemyDefeated("dragon"))
+        {
+            var dragon = GameObject.FindWithTag("Dragon"); // Assuming the Monster has the tag "Ghost"
+            if (dragon != null)
+            {
+                Destroy(dragon);
+            }
+        }
+
+
+
 
 
 
