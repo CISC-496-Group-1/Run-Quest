@@ -56,12 +56,12 @@ public class Chest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && isPlayerInChest)
         {
             p.ableToMove = false;
-            i.addToInv(Item);
             if (!dialogBox.activeInHierarchy)
             {
                 dialogBox.SetActive(true);
                 StartCoroutine(TypeSentence(signText));
                 readSoundEffect.Play();
+                i.addToInv(Item);
             }
             else
             {

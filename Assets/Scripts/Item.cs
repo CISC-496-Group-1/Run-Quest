@@ -17,7 +17,7 @@ public class Item : MonoBehaviour
 
     void Start()
     {
-        // Example on how to modify the stats
+       //modify the stats
         stats.defense = 10;
         stats.attack = 15;
         stats.magic = 20;
