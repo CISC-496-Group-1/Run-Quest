@@ -31,6 +31,8 @@ public class AttackScript : MonoBehaviour
     private FighterStats attackerStats;
     private FighterStats targetStats;
     private float damage = 0.0f;
+    
+
 
     public void Attack(GameObject victim)
     {
@@ -40,14 +42,14 @@ public class AttackScript : MonoBehaviour
         {
             float multiplier = Random.Range(minAttackMultiplier, maxAttackMultiplier);
 
-            damage = Random.Range(PlayerStats.strength - 5, PlayerStats.strength + 5);
+            damage = multiplier * attackerStats.melee;
             if (magicAttack)
             {
                 damage = multiplier * attackerStats.magicRange;
             }
 
-            float defenseMultiplier = 0.5f * Random.Range(PlayerStats.defense - 5, PlayerStats.defense + 5);
-            damage = damage - defenseMultiplier;
+            float defenseMultiplier = Random.Range(minDefenseMultiplier, maxDefenseMultiplier);
+            damage = Mathf.Max(0, damage - (defenseMultiplier * targetStats.defense));
             owner.GetComponent<Animator>().Play(animationName);
             targetStats.ReceiveDamage(Mathf.CeilToInt(damage));
             if (targetStats.health <= 0)

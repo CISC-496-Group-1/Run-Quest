@@ -3511,6 +3511,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 687116289}
+    - target: {fileID: 3929381590712248798, guid: e674c9059bd78e34db7ae7e40d573d7e, type: 3}
+      propertyPath: animationName
+      value: Range
+      objectReference: {fileID: 0}
     - target: {fileID: 6152348916411071272, guid: e674c9059bd78e34db7ae7e40d573d7e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6724715
@@ -3730,6 +3734,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1143712545}
+    - target: {fileID: 6291917962604841974, guid: e9af359ce6cb67b4399f46cf9b9d636c, type: 3}
+      propertyPath: animationName
+      value: Range
+      objectReference: {fileID: 0}
     - target: {fileID: 8325771695735668887, guid: e9af359ce6cb67b4399f46cf9b9d636c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
