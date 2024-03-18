@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class PlayerTeleport : MonoBehaviour
 {
+    public GameObject canvas; // ????Animator???Canvas??
+    private Animator animator; // Animator?????
     private GameObject currentTeleporter;
+    public float transitionTime = 1f; // ??????
+    public GameObject Image;
+
+    void Start()
+    {
+        animator = canvas.GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -12,9 +21,18 @@ public class PlayerTeleport : MonoBehaviour
         {
             if (currentTeleporter != null)
             {
-                transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
+                StartCoroutine(TeleportPlayer());
             }
         }
+    }
+
+    private IEnumerator TeleportPlayer()
+    {
+        Image.SetActive(true);
+        animator.SetTrigger("Start"); // ?????????
+        yield return new WaitForSeconds(transitionTime); // ????????
+
+        transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position; // ????????????
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
