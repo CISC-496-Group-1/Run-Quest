@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 766500441627373482}
   - component: {fileID: 7914031522955573939}
   m_Layer: 0
-  m_Name: StarterSword
+  m_Name: EquipmentItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

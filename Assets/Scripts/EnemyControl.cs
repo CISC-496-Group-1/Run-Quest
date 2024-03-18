@@ -9,7 +9,7 @@ public class EnemyControl : MonoBehaviour
     {
         if (GameManager.Instance.IsEnemyDefeated("giant"))
         {
-            var monster = GameObject.FindWithTag("Monster"); // Assuming the Monster has the tag "Enemy"
+            var monster = GameObject.FindWithTag("Monster"); // Assuming the Monster has the tag "Monster"
             if (monster != null)
             {
                 Destroy(monster);
@@ -18,7 +18,7 @@ public class EnemyControl : MonoBehaviour
 
         if (GameManager.Instance.IsEnemyDefeated("ghost"))
         {
-            var ghost = GameObject.FindWithTag("Ghost"); // Assuming the Monster has the tag "Ghost"
+            var ghost = GameObject.FindWithTag("Ghost"); // 
             if (ghost != null)
             {
                 Destroy(ghost);
@@ -27,7 +27,7 @@ public class EnemyControl : MonoBehaviour
 
         if (GameManager.Instance.IsEnemyDefeated("boar"))
         {
-            var boar = GameObject.FindWithTag("Boar"); // Assuming the Monster has the tag "Ghost"
+            var boar = GameObject.FindWithTag("Boar"); // 
             if ( boar!= null)
             {
                 Destroy(boar);
@@ -36,7 +36,7 @@ public class EnemyControl : MonoBehaviour
 
         if (GameManager.Instance.IsEnemyDefeated("squid"))
         {
-            var squid = GameObject.FindWithTag("Squid"); // Assuming the Monster has the tag "Ghost"
+            var squid = GameObject.FindWithTag("Squid"); //
             if ( squid!= null)
             {
                 Destroy(squid);
@@ -45,7 +45,7 @@ public class EnemyControl : MonoBehaviour
 
         if (GameManager.Instance.IsEnemyDefeated("yeti"))
         {
-            var yeti = GameObject.FindWithTag("Yeti"); // Assuming the Monster has the tag "Ghost"
+            var yeti = GameObject.FindWithTag("Yeti"); 
             if ( yeti != null)
             {
                 Destroy(yeti);
@@ -54,7 +54,7 @@ public class EnemyControl : MonoBehaviour
 
         if (GameManager.Instance.IsEnemyDefeated("dragon"))
         {
-            var dragon = GameObject.FindWithTag("Dragon"); // Assuming the Monster has the tag "Ghost"
+            var dragon = GameObject.FindWithTag("Dragon"); // 
             if (dragon != null)
             {
                 Destroy(dragon);

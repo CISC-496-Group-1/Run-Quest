@@ -14,7 +14,6 @@ public class DisplayEIcon : MonoBehaviour
         {
             eIcon.SetActive(true); // 显示"E"图标
             eIcon.transform.position = player.transform.position;
-            eIcon.transform.position.Set(player.transform.position.x, (player.transform.position.y + 1.5f), player.transform.position.z);
 
 
 
