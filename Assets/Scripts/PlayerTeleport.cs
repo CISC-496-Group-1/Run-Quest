@@ -31,8 +31,9 @@ public class PlayerTeleport : MonoBehaviour
         Image.SetActive(true);
         animator.SetTrigger("Start"); // ?????????
         yield return new WaitForSeconds(transitionTime); // ????????
-
+        
         transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position; // ????????????
+        Image.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
