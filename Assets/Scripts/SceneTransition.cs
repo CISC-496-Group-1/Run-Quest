@@ -13,10 +13,7 @@ public class SceneTransition : MonoBehaviour
     public string sceneToLoad; 
     public float typingSpeed = 0.02f;
     public GameObject Player;
-    public GameObject canvas;
-    public GameObject Image;
 
-    private Animator transition;
     private Queue<string> dialogueQueue = new Queue<string>(); 
     private bool isDialogueActive = false; 
 
@@ -25,7 +22,6 @@ public class SceneTransition : MonoBehaviour
         foreach (string dialogue in dialogues) {
             dialogueQueue.Enqueue(dialogue); 
         }
-        transition = canvas.GetComponent<Animator>();
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
@@ -47,10 +43,7 @@ public class SceneTransition : MonoBehaviour
 
         dialogBox.SetActive(false); 
         isDialogueActive = false;
-        Image.SetActive(true);
-        transition.SetTrigger("Start");
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene(sceneToLoad); 
     }
 
     private IEnumerator TypeSentence(string sentence) {
@@ -60,5 +53,4 @@ public class SceneTransition : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
     }
-
 }

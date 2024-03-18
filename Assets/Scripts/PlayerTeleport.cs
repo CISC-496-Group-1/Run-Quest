@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class PlayerTeleport : MonoBehaviour
 {
-    public GameObject canvas; // 引用包含Animator组件的Canvas对象
-    private Animator animator; // Animator组件的引用
     private GameObject currentTeleporter;
-    public float transitionTime = 1f; // 动画过渡时间
-    public GameObject Image;
-
-    void Start()
-    {
-        animator = canvas.GetComponent<Animator>();
-    }
 
     void Update()
     {
@@ -21,18 +12,9 @@ public class PlayerTeleport : MonoBehaviour
         {
             if (currentTeleporter != null)
             {
-                StartCoroutine(TeleportPlayer());
+                transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
             }
         }
-    }
-
-    private IEnumerator TeleportPlayer()
-    {
-        Image.SetActive(true);
-        animator.SetTrigger("Start"); // 激活开始瞬移的动画
-        yield return new WaitForSeconds(transitionTime); // 等待动画播放完成
-
-        transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position; // 更新玩家位置到瞬移目标点
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
