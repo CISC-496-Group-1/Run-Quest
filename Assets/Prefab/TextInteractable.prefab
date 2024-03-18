@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3396068793685051733}
   - component: {fileID: 2939634712148734252}
   - component: {fileID: 475299105854784035}
+  - component: {fileID: 3613817069145568445}
   m_Layer: 16
   m_Name: TextInteractable
   m_TagString: Untagged
@@ -189,5 +190,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 0}
   dialogBoxText: {fileID: 0}
-  signText: 
+  signText: Welcome To RunQuest. Bounties of Loot and Many Battles Await You! Record
+    a Run on strava to get moving!
   readSoundEffect: {fileID: 2939634712148734252}
+--- !u!114 &3613817069145568445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5922930377278626737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c61b0efd06a0345a89d456ecb8e936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eIcon: {fileID: 0}
+  player: {fileID: 0}

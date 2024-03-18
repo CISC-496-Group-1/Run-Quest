@@ -20543,6 +20543,8 @@ MonoBehaviour:
   maxTravelDistance: 10
   currentTravelDistance: 0
   distanceText: {fileID: 1826333924}
+  moving: 0
+  ableToMove: 1
 --- !u!50 &1504872712
 Rigidbody2D:
   serializedVersion: 4
@@ -20670,10 +20672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8509c006385885468810de894d5003d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 1
-  defense: 0
-  magicDamage: 0
-  speed: 0
   playerText: {fileID: 1181341548}
 --- !u!114 &1504872718
 MonoBehaviour:
@@ -20702,9 +20700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9549ec151a1724948a986d27f0fa69de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1504989037}
-  transitionTime: 1
-  Image: {fileID: 928074709}
 --- !u!1 &1504989037
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class DisplayEIcon : MonoBehaviour
 {
     public GameObject eIcon; // 指向你的"E"图标的引用
+    public GameObject player;
 
     // 当玩家角色进入2D触发器区域时调用
     private void OnTriggerEnter2D(Collider2D other)
@@ -12,6 +13,11 @@ public class DisplayEIcon : MonoBehaviour
         if (other.CompareTag("Player")) // 确保只有玩家可以触发事件
         {
             eIcon.SetActive(true); // 显示"E"图标
+            eIcon.transform.position = player.transform.position;
+            eIcon.transform.position.Set(player.transform.position.x, (player.transform.position.y + 1.5f), player.transform.position.z);
+
+
+
         }
     }
 
