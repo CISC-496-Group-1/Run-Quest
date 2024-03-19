@@ -71,6 +71,12 @@ public class FighterStats : MonoBehaviour, IComparable
         if (gameObject.tag == "Enemy")
         {
             InitializeRandomStats();
+        }else if(gameObject.tag == "Hero")
+        {
+            magic = PlayerStats.magicDamage; // Directly using magicDamage, adjust if you have a separate 'magic' stat
+            melee = PlayerStats.strength; // Assuming strength can represent melee power, adjust as necessary
+            defense = PlayerStats.defense;
+            speed = PlayerStats.speed;
         }
 
         startHealth = health;
