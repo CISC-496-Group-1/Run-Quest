@@ -22,6 +22,8 @@ public class PlayerStats : MonoBehaviour
 
     public LogScript log;
 
+    private PlayerMovement playerMove;
+
     void Start()
     {
         /*if (!QuickSaveReader.RootExists("Stats"))
@@ -45,6 +47,8 @@ public class PlayerStats : MonoBehaviour
         defense = 1;
         speed = 1;
         magicDamage = 1;
+
+        playerMove = GetComponent<PlayerMovement>();
 
         log = GetComponent<LogScript>();
     }
@@ -116,6 +120,7 @@ public class PlayerStats : MonoBehaviour
                 foreach (Activity a in activities)
                 {
                     log.CreateNewLog(a);
+                    playerMove.AddDistance((float) a.distance / 100);
                     addStrength((int)a.distance / 100);
                     addSpeed((int)a.max_speed);
                     addDefense((int)a.moving_time / 100);
