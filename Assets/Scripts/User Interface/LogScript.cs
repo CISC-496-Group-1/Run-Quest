@@ -54,6 +54,38 @@ public class LogScript : MonoBehaviour
         UpdateLogEntries();
     }
 
+    public void CreateNewLog(Activity activity)
+    {
+        GameObject newLog = new GameObject();
+        GameObject textComponent = new GameObject();
+        newLog.AddComponent<RectTransform>();
+        newLog.AddComponent<CanvasRenderer>();
+        newLog.AddComponent<Image>();
+        newLog.GetComponent<Image>().color = new Color32(0, 164, 36, 255);
+
+        textComponent.AddComponent<RectTransform>();
+        textComponent.AddComponent<CanvasRenderer>();
+        textComponent.AddComponent<Text>();
+
+        string date = System.DateTime.Now.ToString();
+
+        
+        textComponent.GetComponent<Text>().text = activity.start_date + " Performed a " + activity.type;
+        
+        
+
+        textComponent.transform.parent = newLog.transform;
+        textComponent.GetComponent<Text>().font = font;
+        textComponent.GetComponent<Text>().color = new Color32(0, 0, 0, 255);
+        textComponent.GetComponent<RectTransform>().sizeDelta = new Vector2(378.2208f, 19.043f);
+        textComponent.GetComponent<Text>().fontStyle = FontStyle.Bold;
+        textComponent.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+
+        logs.Add(newLog);
+
+        UpdateLogEntries();
+    }
+
     public void UpdateLogEntries()
     {
         Debug.Log(activityLog);

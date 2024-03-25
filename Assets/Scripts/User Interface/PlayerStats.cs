@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using CI.QuickSave;
 using UnityEngine.Networking;
 using System;
+using Newtonsoft.Json;
 
 public class AthleteId
 {
@@ -23,7 +24,7 @@ public class Map
 public class Activity
 {
     public int resource_state { get; set; }
-    public Athlete athlete { get; set; }
+    public AthleteId athlete { get; set; }
     public string name { get; set; }
     public double distance { get; set; }
     public int moving_time { get; set; }
@@ -69,68 +70,7 @@ public class Activity
     public int total_photo_count { get; set; }
     public bool has_kudoed { get; set; }
 }
-public class AthleteId
-{
-    public int id { get; set; }
-    public int resource_state { get; set; }
-}
 
-public class Map
-{
-    public string id { get; set; }
-    public string summary_polyline { get; set; }
-    public int resource_state { get; set; }
-}
-
-public class Activity
-{
-    public int resource_state { get; set; }
-    public Athlete athlete { get; set; }
-    public string name { get; set; }
-    public double distance { get; set; }
-    public int moving_time { get; set; }
-    public int elapsed_time { get; set; }
-    public double total_elevation_gain { get; set; }
-    public string type { get; set; }
-    public string sport_type { get; set; }
-    public long id { get; set; }
-    public DateTime start_date { get; set; }
-    public DateTime start_date_local { get; set; }
-    public string timezone { get; set; }
-    public double utc_offset { get; set; }
-    public object location_city { get; set; }
-    public object location_state { get; set; }
-    public object location_country { get; set; }
-    public int achievement_count { get; set; }
-    public int kudos_count { get; set; }
-    public int comment_count { get; set; }
-    public int athlete_count { get; set; }
-    public int photo_count { get; set; }
-    public Map map { get; set; }
-    public bool trainer { get; set; }
-    public bool commute { get; set; }
-    public bool manual { get; set; }
-    public bool @private { get; set; }
-    public string visibility { get; set; }
-    public bool flagged { get; set; }
-    public object gear_id { get; set; }
-    public List<object> start_latlng { get; set; }
-    public List<object> end_latlng { get; set; }
-    public double average_speed { get; set; }
-    public double max_speed { get; set; }
-    public bool has_heartrate { get; set; }
-    public bool heartrate_opt_out { get; set; }
-    public bool display_hide_heartrate_option { get; set; }
-    public double elev_high { get; set; }
-    public double elev_low { get; set; }
-    public long upload_id { get; set; }
-    public string upload_id_str { get; set; }
-    public string external_id { get; set; }
-    public bool from_accepted_tag { get; set; }
-    public int pr_count { get; set; }
-    public int total_photo_count { get; set; }
-    public bool has_kudoed { get; set; }
-}
 public class PlayerStats : MonoBehaviour
 {
     public static int strength;
@@ -142,6 +82,8 @@ public class PlayerStats : MonoBehaviour
 
     private QuickSaveReader reader;
     private QuickSaveWriter writer;
+
+    public static LogScript log;
 
     void Start()
     {
@@ -162,6 +104,7 @@ public class PlayerStats : MonoBehaviour
         magicDamage = reader.Read<int>("Magic Damage");
         speed = reader.Read<int>("Speed");
 
+        log = GetComponent<LogScript>();
 
         updatePlayerStats();
     }
@@ -222,6 +165,14 @@ public class PlayerStats : MonoBehaviour
             } else
             {
                 Debug.Log(response.downloadHandler.text);
+
+                List<Activity> activities = JsonConvert.DeserializeObject<List<Activity>>(response.downloadHandler.text);
+                Debug.Log(activities);
+
+                foreach (Activity a in activities)
+                {
+                   PlayerStats.log.CreateNewLog(a);
+                }
             }
         }
     }
