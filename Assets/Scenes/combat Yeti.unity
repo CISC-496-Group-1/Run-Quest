@@ -971,15 +971,15 @@ MonoBehaviour:
   animator: {fileID: 687116292}
   healthFill: {fileID: 1791707663}
   magicFill: {fileID: 158736533}
-  health: 100
-  healthMin: 50
-  healthMax: 100
-  magic: 10
-  magicMin: 0
-  magicMax: 50
-  melee: 20
-  meleeMin: 10
-  meleeMax: 30
+  health: 50
+  healthMin: 25
+  healthMax: 75
+  magic: 20
+  magicMin: 10
+  magicMax: 30
+  melee: 10
+  meleeMin: 5
+  meleeMax: 15
   magicRange: 1
   defense: 10
   defenseMin: 0

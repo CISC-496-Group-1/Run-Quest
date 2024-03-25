@@ -34,7 +34,15 @@ public class MakeButton : MonoBehaviour
             hero.GetComponent<FighterAction>().SelectAttack("melee");
         } else if (btn.CompareTo("RangeBtn") == 0)
         {
-            hero.GetComponent<FighterAction>().SelectAttack("range");
+            if(hero.GetComponent<FighterStats>().magic >= 10)
+            {
+                hero.GetComponent<FighterAction>().SelectAttack("range");
+            }
+            else
+            {
+                hero.GetComponent<FighterAction>().SelectAttack("melee");
+            }
+
         } else
         {
             hero.GetComponent<FighterAction>().SelectAttack("run");

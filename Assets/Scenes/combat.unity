@@ -1132,7 +1132,7 @@ MonoBehaviour:
   healthMax: 100
   magic: 10
   magicMin: 0
-  magicMax: 50
+  magicMax: 20
   melee: 20
   meleeMin: 0
   meleeMax: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FighterAction : MonoBehaviour
@@ -54,7 +55,8 @@ public class FighterAction : MonoBehaviour
             rangePrefab.GetComponent<AttackScript>().Attack(victim);
         } else
         {
-            Debug.Log("Run");
+            //Debug.Log("Run");
+            SceneManager.LoadScene("SettingMenu");
         }
     }
 }
