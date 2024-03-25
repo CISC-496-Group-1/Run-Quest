@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 71492884, guid: 3c7c48309dce5aa43933e16994a6f3ce, type: 3}
+  m_Sprite: {fileID: -1483028001, guid: 9e75c4fe5e3503d45becee9b3f2371f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3019,7 +3019,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GIANT
+  m_Text: bat
 --- !u!222 &1894578784
 CanvasRenderer:
   m_ObjectHideFlags: 0

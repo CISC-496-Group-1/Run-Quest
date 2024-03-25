@@ -2983,8 +2983,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80.00001, y: 29.555004}
-  m_SizeDelta: {x: 50, y: 27.17}
+  m_AnchoredPosition: {x: 87.63, y: 26.82}
+  m_SizeDelta: {x: 65.27, y: 32.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1894578783
 MonoBehaviour:
@@ -3019,7 +3019,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GIANT
+  m_Text: fungus
 --- !u!222 &1894578784
 CanvasRenderer:
   m_ObjectHideFlags: 0
