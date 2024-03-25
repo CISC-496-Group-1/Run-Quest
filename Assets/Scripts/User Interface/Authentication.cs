@@ -45,6 +45,13 @@ public class Authentication : MonoBehaviour
     public GameObject pasteURL;
     public GameObject input;
     public static string token;
+
+    private PlayerStats updatePlayer;
+
+    public void Start()
+    {
+        updatePlayer = GameObject.Find("Player").GetComponent<PlayerStats>();
+    }
     public void LinkAccount()
     {
         Application.OpenURL("http://www.strava.com/oauth/authorize?client_id=122966&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=read,activity:read");
@@ -76,7 +83,7 @@ public class Authentication : MonoBehaviour
                 token = JsonConvert.DeserializeObject<Root>(response.downloadHandler.text).access_token;
                 Debug.Log("Token Retrival Success!");
                 Debug.Log(token);
-                StartCoroutine(PlayerStats.GetLogs(token));
+                StartCoroutine(updatePlayer.GetLogs(token));
             }
         }
     }
