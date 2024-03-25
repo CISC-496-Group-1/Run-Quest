@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        /*if (!QuickSaveReader.RootExists("Stats"))
+        if (!QuickSaveReader.RootExists("Stats"))
         {
             writer = QuickSaveWriter.Create("Stats");
             writer.Write("Strength", 1);
@@ -35,53 +35,52 @@ public class PlayerStats : MonoBehaviour
             writer.Write("Speed", 1);
             writer.Commit();
         }
+        
         writer = QuickSaveWriter.Create("Stats");
         reader = QuickSaveReader.Create("Stats");
 
         strength = reader.Read<int>("Strength");
         defense = reader.Read<int>("Defense");
         magicDamage = reader.Read<int>("Magic Damage");
-        speed = reader.Read<int>("Speed");*/
-
-        strength = 1;
-        defense = 1;
-        speed = 1;
-        magicDamage = 1;
+        speed = reader.Read<int>("Speed");
 
         playerMove = GetComponent<PlayerMovement>();
 
         log = GetComponent<LogScript>();
+
+        UpdatePlayerStats();
+
     }
 
     public void addStrength(int amountToAdd)
     {
         strength += amountToAdd;
-        // writer.Write("Strength", strength);
-        // writer.Commit();
+         writer.Write("Strength", strength);
+         writer.Commit();
 
     }
 
     public void addDefense(int amountToAdd)
     {
         defense += amountToAdd;
-        // writer.Write("Defense", defense);
-        //writer.Commit();
+        writer.Write("Defense", defense);
+        writer.Commit();
         UpdatePlayerStats();
     }
 
     public void addMagicDamage(int amountToAdd)
     {
         magicDamage += amountToAdd;
-        // writer.Write("Magic Damage", magicDamage);
-        //writer.Commit();
+        writer.Write("Magic Damage", magicDamage);
+        writer.Commit();
         UpdatePlayerStats();
     }
 
     public void addSpeed(int amountToAdd)
     {
         speed += amountToAdd;
-        // writer.Write("Speed", speed);
-        //writer.Commit();
+        writer.Write("Speed", speed);
+        writer.Commit();
         UpdatePlayerStats();
     }
 
@@ -194,3 +193,4 @@ public class Activity
     public int total_photo_count { get; set; }
     public bool has_kudoed { get; set; }
 }
+
