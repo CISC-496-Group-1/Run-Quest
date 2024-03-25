@@ -71,6 +71,12 @@ public class FighterStats : MonoBehaviour, IComparable
         if (gameObject.tag == "Enemy")
         {
             InitializeRandomStats();
+        }else if(gameObject.tag == "Hero")
+        {
+            magic = PlayerStats.magicDamage; // Directly using magicDamage, adjust if you have a separate 'magic' stat
+            melee = PlayerStats.strength; // Assuming strength can represent melee power, adjust as necessary
+            defense = PlayerStats.defense;
+            speed = PlayerStats.speed;
         }
 
         startHealth = health;
@@ -96,7 +102,10 @@ public class FighterStats : MonoBehaviour, IComparable
         animator.Play("Damage");
 
         // Set damage text
-
+        if(damage < 0)
+        {
+            damage = 0;
+        }
         if(health <= 0)
         {
             dead = true;
@@ -108,7 +117,7 @@ public class FighterStats : MonoBehaviour, IComparable
             xNewHealthScale = healthScale.x * (health / startHealth);
             healthFill.transform.localScale = new Vector2(xNewHealthScale, healthScale.y);
         }
-        if(damage > 0)
+        if(damage >= 0)
         {
             GameControllerObj.GetComponent<GameController>().battleText.gameObject.SetActive(true);
             GameControllerObj.GetComponent<GameController>().battleText.text = damage.ToString();
