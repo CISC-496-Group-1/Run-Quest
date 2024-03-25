@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float maxTravelDistance = 10f; // Maximum distance the player can travel
     public float currentTravelDistance; // Current available distance for travel
 
+    public float runToGameDistScale = 0.25f;
+
     public Text distanceText; 
 
     Vector2 lastClickedPos;
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public bool moving;
     public bool ableToMove = true;
     private Animator animator;
+    
 
     private LogScript log;
     private PlayerStats stats;
@@ -101,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
 
                 // Decrease the available travel distance
-                currentTravelDistance -= step * 0.25f;
+                currentTravelDistance -= step * runToGameDistScale;
 
                 if (currentTravelDistance <= 0)
                 {
@@ -145,6 +148,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (distanceText != null)
             distanceText.text = "Distance: " + currentTravelDistance.ToString("F2") + " KM"; // Format the distance display
+    }
+
+    public void changeScale(float scalefactor)
+    {
+        runToGameDistScale = scalefactor;
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
