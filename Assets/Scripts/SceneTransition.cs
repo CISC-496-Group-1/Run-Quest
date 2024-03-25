@@ -15,6 +15,7 @@ public class SceneTransition : MonoBehaviour
     public GameObject Player;
     public GameObject canvas;
     public GameObject Image;
+    public GameObject fightButton;
 
     private Animator transition;
     private Queue<string> dialogueQueue = new Queue<string>(); 
@@ -22,6 +23,7 @@ public class SceneTransition : MonoBehaviour
 
     void Awake() {
         dialogBox.SetActive(false); 
+        fightButton.SetActive(false);
         foreach (string dialogue in dialogues) {
             dialogueQueue.Enqueue(dialogue); 
         }
@@ -42,17 +44,21 @@ public class SceneTransition : MonoBehaviour
         while (dialogueQueue.Count > 0) {
             string sentence = dialogueQueue.Dequeue();
             yield return StartCoroutine(TypeSentence(sentence)); 
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E)); 
         }
 
-        dialogBox.SetActive(false); 
+        fightButton.SetActive(true);
         isDialogueActive = false;
-        Image.SetActive(true);
-        transition.SetTrigger("Start");
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(sceneToLoad);
     }
 
+    public void OnFightButtonClicked() {
+        Debug.Log("Button clicked!");
+        fightButton.SetActive(false); // Disable the button to prevent multiple clicks.
+        Image.SetActive(true);
+        transition.SetTrigger("Start");
+        StartCoroutine(TransitionToScene());
+    }
+
+    
     private IEnumerator TypeSentence(string sentence) {
         dialogBoxText.text = ""; 
         foreach (char letter in sentence.ToCharArray()) {
@@ -60,5 +66,11 @@ public class SceneTransition : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
     }
+
+    private IEnumerator TransitionToScene() {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
 
 }
