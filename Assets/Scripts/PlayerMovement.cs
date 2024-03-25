@@ -124,6 +124,23 @@ public class PlayerMovement : MonoBehaviour
         if (currentTravelDistance > maxTravelDistance)
             currentTravelDistance = maxTravelDistance;
 
+        if (amount == 1.0f)
+        {
+            log.CreateNewLog(1);
+            stats.GenerateStats(1, 3);
+
+        }
+        else if (amount == 2.0f)
+        {
+            log.CreateNewLog(2);
+            stats.GenerateStats(3, 5);
+        }
+        else
+        {
+            log.CreateNewLog(3);
+            stats.GenerateStats(5, 7);
+        }
+
         Debug.Log("Distance added. Current distance: " + currentTravelDistance);
     }
 
