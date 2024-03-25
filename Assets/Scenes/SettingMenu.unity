@@ -2845,6 +2845,7 @@ GameObject:
   - component: {fileID: 210426909}
   - component: {fileID: 210426911}
   - component: {fileID: 210426912}
+  - component: {fileID: 210426913}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -2965,6 +2966,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9128622, y: 1.3070874}
   m_EdgeRadius: 0
+--- !u!95 &210426913
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210426908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c16f02296673d2d4d8cac100f306d3ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &214576974
 GameObject:
   m_ObjectHideFlags: 0
@@ -58080,6 +58102,7 @@ GameObject:
   - component: {fileID: 401877663}
   - component: {fileID: 401877662}
   - component: {fileID: 401877664}
+  - component: {fileID: 401877665}
   m_Layer: 0
   m_Name: CaveBoss
   m_TagString: Dragon
@@ -58200,6 +58223,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7057656, y: 1.5509677}
   m_EdgeRadius: 0
+--- !u!95 &401877665
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401877661}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 398d7ed3a5572a84ebfa0c87fc5bc6e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &403765336
 GameObject:
   m_ObjectHideFlags: 0
@@ -73726,6 +73770,7 @@ GameObject:
   - component: {fileID: 1462409378}
   - component: {fileID: 1462409377}
   - component: {fileID: 1462409379}
+  - component: {fileID: 1462409380}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Yeti
@@ -73846,6 +73891,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4517252, y: 0.9186516}
   m_EdgeRadius: 0
+--- !u!95 &1462409380
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462409376}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fa1123fe8f233046b0feecdcefe5004, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1469344398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74834,7 +74900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8509c006385885468810de894d5003d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerText: {fileID: 1181341548}
+  text: {fileID: 0}
+  log: {fileID: 0}
 --- !u!114 &1504872718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75167,6 +75234,7 @@ GameObject:
   - component: {fileID: 1521359670}
   - component: {fileID: 1521359669}
   - component: {fileID: 1521359671}
+  - component: {fileID: 1521359672}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Ghost
@@ -75287,6 +75355,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1320451, y: 0.8260505}
   m_EdgeRadius: 0
+--- !u!95 &1521359672
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521359668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b9a6e2816d16b74fbac96065cbbbba9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1523954934
 GameObject:
   m_ObjectHideFlags: 0
@@ -76037,6 +76126,7 @@ GameObject:
   - component: {fileID: 1587150686}
   - component: {fileID: 1587150685}
   - component: {fileID: 1587150687}
+  - component: {fileID: 1587150688}
   m_Layer: 0
   m_Name: Boar
   m_TagString: Boar
@@ -76157,6 +76247,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.48, y: 1.3470333}
   m_EdgeRadius: 0
+--- !u!95 &1587150688
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587150684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3185e4b9f991d94f8a9fb9cd380a99b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1587905626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79354,6 +79465,7 @@ GameObject:
   - component: {fileID: 1918136480}
   - component: {fileID: 1918136479}
   - component: {fileID: 1918136481}
+  - component: {fileID: 1918136482}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Squid
@@ -79474,6 +79586,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1124334, y: 1.3043327}
   m_EdgeRadius: 0
+--- !u!95 &1918136482
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918136478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 124dccc6039e1654896b8d0738ab08c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1926961210
 GameObject:
   m_ObjectHideFlags: 0
