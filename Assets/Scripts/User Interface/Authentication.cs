@@ -59,7 +59,6 @@ public class Authentication : MonoBehaviour
     public void SubmitCode()
     {
         string inputText = input.GetComponent<InputField>().text;
-        Debug.Log(inputText);
         StartCoroutine(AuthenticateCode(inputText));
     }
 
@@ -74,8 +73,10 @@ public class Authentication : MonoBehaviour
                 Debug.Log("Error getting data");
             } else
             {
-                Root r = JsonConvert.DeserializeObject<Root>(response.downloadHandler.text);
-                Debug.Log(r.access_token);
+                token = JsonConvert.DeserializeObject<Root>(response.downloadHandler.text).access_token;
+                Debug.Log("Token Retrival Success!");
+                Debug.Log(token);
+                StartCoroutine(PlayerStats.GetLogs(token));
             }
         }
     }

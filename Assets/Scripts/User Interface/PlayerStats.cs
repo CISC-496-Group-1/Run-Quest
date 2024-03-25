@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 using CI.QuickSave;
+using UnityEngine.Networking;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -79,5 +80,24 @@ public class PlayerStats : MonoBehaviour
         addMagicDamage(Random.Range(min, max));
         addSpeed(Random.Range(min, max));
         updatePlayerStats();
+    }
+
+    public static IEnumerator GetLogs(string token)
+    {
+        using (UnityWebRequest response = UnityWebRequest.Get("https://www.strava.com/api/v3/athlete/activities?per_page=30"))
+        {
+            response.SetRequestHeader("accept", "application/json");
+            response.SetRequestHeader("authorization", "Bearer " + token);
+
+            yield return response.SendWebRequest();
+
+            if (response.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Error getting logs");
+            } else
+            {
+                Debug.Log(response.downloadHandler.text);
+            }
+        }
     }
 }
