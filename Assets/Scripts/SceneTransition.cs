@@ -54,8 +54,7 @@ public class SceneTransition : MonoBehaviour
     }
 
     public void OnFightButtonClicked() {
-        Debug.Log("Button clicked!");
-        fightButton.SetActive(false); // Disable the button to prevent multiple clicks.
+        fightButton.SetActive(false);
         Image.SetActive(true);
         transition.SetTrigger("Start");
         StartCoroutine(TransitionToScene());
