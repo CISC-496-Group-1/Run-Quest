@@ -16,12 +16,14 @@ public class SceneTransition : MonoBehaviour
     public GameObject canvas;
     public GameObject Image;
     public GameObject fightButton;
+    public GameObject escapeButton;
 
     private Animator transition;
     private Queue<string> dialogueQueue = new Queue<string>(); 
     private bool isDialogueActive = false; 
 
     void Awake() {
+        escapeButton.SetActive(false);
         dialogBox.SetActive(false); 
         fightButton.SetActive(false);
         foreach (string dialogue in dialogues) {
@@ -47,6 +49,7 @@ public class SceneTransition : MonoBehaviour
         }
 
         fightButton.SetActive(true);
+        escapeButton.SetActive(true);
         isDialogueActive = false;
     }
 
@@ -72,5 +75,13 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
     }
 
+    public void ExitDialogue() {
+        StopAllCoroutines(); // Halts the ongoing typing coroutine
+        dialogueQueue.Clear(); // Empties the queue of pending dialogues
+        dialogBox.SetActive(false); // Hides the dialogue box
+        escapeButton.SetActive(false); // Disables the escape button
+        fightButton.SetActive(false); // Optionally hides the fight button, if relevant to context
+        isDialogueActive = false; // Resets dialogue activity flag
+    }
 
 }
