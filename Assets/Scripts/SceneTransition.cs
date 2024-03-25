@@ -15,13 +15,17 @@ public class SceneTransition : MonoBehaviour
     public GameObject Player;
     public GameObject canvas;
     public GameObject Image;
+    public GameObject fightButton;
+    public GameObject escapeButton;
 
     private Animator transition;
     private Queue<string> dialogueQueue = new Queue<string>(); 
     private bool isDialogueActive = false; 
 
     void Awake() {
+        escapeButton.SetActive(false);
         dialogBox.SetActive(false); 
+        fightButton.SetActive(false);
         foreach (string dialogue in dialogues) {
             dialogueQueue.Enqueue(dialogue); 
         }
@@ -42,23 +46,41 @@ public class SceneTransition : MonoBehaviour
         while (dialogueQueue.Count > 0) {
             string sentence = dialogueQueue.Dequeue();
             yield return StartCoroutine(TypeSentence(sentence)); 
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E)); 
         }
 
-        dialogBox.SetActive(false); 
+        fightButton.SetActive(true);
+        escapeButton.SetActive(true);
         isDialogueActive = false;
-        Image.SetActive(true);
-        transition.SetTrigger("Start");
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(sceneToLoad);
     }
 
+    public void OnFightButtonClicked() {
+        fightButton.SetActive(false);
+        Image.SetActive(true);
+        transition.SetTrigger("Start");
+        StartCoroutine(TransitionToScene());
+    }
+
+    
     private IEnumerator TypeSentence(string sentence) {
         dialogBoxText.text = ""; 
         foreach (char letter in sentence.ToCharArray()) {
             dialogBoxText.text += letter; 
             yield return new WaitForSeconds(typingSpeed);
         }
+    }
+
+    private IEnumerator TransitionToScene() {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
+    public void ExitDialogue() {
+        StopAllCoroutines(); // Halts the ongoing typing coroutine
+        dialogueQueue.Clear(); // Empties the queue of pending dialogues
+        dialogBox.SetActive(false); // Hides the dialogue box
+        escapeButton.SetActive(false); // Disables the escape button
+        fightButton.SetActive(false); // Optionally hides the fight button, if relevant to context
+        isDialogueActive = false; // Resets dialogue activity flag
     }
 
 }
