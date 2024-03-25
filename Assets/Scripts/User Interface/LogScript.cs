@@ -13,6 +13,7 @@ public class LogScript : MonoBehaviour
         logs = new List<GameObject>();
     }
 
+
     public void CreateNewLog(int intensity)
     {
         GameObject newLog = new GameObject();
