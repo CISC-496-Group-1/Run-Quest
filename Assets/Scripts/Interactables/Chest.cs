@@ -61,7 +61,6 @@ public class Chest : MonoBehaviour
                 dialogBox.SetActive(true);
                 StartCoroutine(TypeSentence(signText));
                 readSoundEffect.Play();
-                i.addToInv(Item);
             }
             else
             {
