@@ -106,7 +106,6 @@ public class LogScript : MonoBehaviour
 
     public void UpdateLogEntries()
     {
-        Debug.Log(activityLog);
         foreach (GameObject log in logs)
         {
             log.transform.parent = activityLog.transform;

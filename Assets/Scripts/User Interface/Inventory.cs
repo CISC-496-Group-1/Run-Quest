@@ -46,6 +46,7 @@ public class Inventory : MonoBehaviour
     public static void addToInventory(ItemScript item)
     {
         items.Add(item);
+
     }
     
     public bool canEquip(ItemScript item)
@@ -96,6 +97,8 @@ public class Inventory : MonoBehaviour
         GameObject imageComponent = new GameObject();
         GameObject textComponent = new GameObject();
         GameObject textComponent2 = new GameObject();
+        GameObject button = new GameObject();
+        GameObject buttonText = new GameObject();
 
         newLog.AddComponent<RectTransform>();
         newLog.AddComponent<CanvasRenderer>();
@@ -113,6 +116,16 @@ public class Inventory : MonoBehaviour
 
         imageComponent.AddComponent<Image>();
         imageComponent.AddComponent<RectTransform>();
+        imageComponent.GetComponent<Image>().sprite = item.image;
+
+        button.AddComponent<RectTransform>();
+        button.AddComponent<CanvasRenderer>();
+        button.AddComponent<Image>();
+        button.AddComponent<Button>();
+
+        buttonText.AddComponent<RectTransform>();
+        button.AddComponent<CanvasRenderer>();
+        buttonText.AddComponent<Text>();
 
         string date = System.DateTime.Now.ToString();
 
@@ -138,21 +151,33 @@ public class Inventory : MonoBehaviour
         {
             textComponent2.GetComponent<Text>().text += "Magic Damage: " + item.magicDamage + " ";
         }
+        buttonText.GetComponent<Text>().text = "Equip";
 
+        imageComponent.transform.parent = newLog.transform;
 
         textComponent.transform.parent = newLog.transform;
         textComponent.GetComponent<Text>().font = font;
         textComponent.GetComponent<Text>().color = new Color32(0, 0, 0, 255);
-        textComponent.GetComponent<RectTransform>().sizeDelta = new Vector2(378.2208f, 19.043f);
+        textComponent.GetComponent<RectTransform>().sizeDelta = new Vector2(160f, 55f);
         textComponent.GetComponent<Text>().fontStyle = FontStyle.Bold;
         textComponent.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
 
         textComponent2.transform.parent = newLog.transform;
         textComponent2.GetComponent<Text>().font = font;
         textComponent2.GetComponent<Text>().color = new Color32(0, 0, 0, 255);
-        textComponent2.GetComponent<RectTransform>().sizeDelta = new Vector2(378.2208f, 19.043f);
+        textComponent2.GetComponent<RectTransform>().sizeDelta = new Vector2(160f, 55f);
         textComponent2.GetComponent<Text>().fontStyle = FontStyle.Bold;
         textComponent2.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+
+        buttonText.transform.parent = button.transform;
+        buttonText.GetComponent<Text>().font = font;
+        buttonText.GetComponent<Text>().color = new Color32(0, 0, 0, 255);
+        buttonText.GetComponent<RectTransform>().sizeDelta = new Vector2(160f, 55f);
+        buttonText.GetComponent<Text>().fontStyle = FontStyle.Bold;
+        buttonText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+
+        button.GetComponent<Image>().color = new Color32(0, 243, 1, 255);
+        button.transform.parent = newLog.transform;
 
         logs.Add(newLog);
 

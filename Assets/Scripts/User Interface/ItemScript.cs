@@ -7,7 +7,7 @@ public class ItemScript : MonoBehaviour
 {
     public int itemId;
     public string itemName;
-    public Image image;
+    public Sprite image;
     public int strength;
     public int defence;
     public int speed;
