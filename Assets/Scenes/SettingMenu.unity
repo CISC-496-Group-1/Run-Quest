@@ -81102,7 +81102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 958328916997584356, guid: 1d75f1cc3317ab440a2d25737c7855f0, type: 3}
       propertyPath: m_Name
-      value: Scene Transition
+      value: Ghost Transition
       objectReference: {fileID: 0}
     - target: {fileID: 958328916997584356, guid: 1d75f1cc3317ab440a2d25737c7855f0, type: 3}
       propertyPath: m_IsActive
