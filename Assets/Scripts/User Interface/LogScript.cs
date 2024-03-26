@@ -11,6 +11,7 @@ public class LogScript : MonoBehaviour
     void Start()
     {
         logs = new List<GameObject>();
+        DontDestroyOnLoad(activityLog);
     }
 
 
