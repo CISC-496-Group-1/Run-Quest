@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 3f;
     public float maxTravelDistance = 10f; // Maximum distance the player can travel
+    public float minTravelDistance = 0f; // Maximum distance the player can travel
     public float currentTravelDistance; // Current available distance for travel
 
     public float runToGameDistScale = 0.25f;
@@ -126,6 +127,9 @@ public class PlayerMovement : MonoBehaviour
         currentTravelDistance += amount;
         if (currentTravelDistance > maxTravelDistance)
             currentTravelDistance = maxTravelDistance;
+
+        if (currentTravelDistance < minTravelDistance)
+            currentTravelDistance = minTravelDistance;
 
         if (amount == 1.0f)
         {
