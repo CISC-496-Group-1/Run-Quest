@@ -23,9 +23,11 @@ public class PlayerStats : MonoBehaviour
     public LogScript log;
 
     private PlayerMovement playerMove;
+    public bool reset;
 
     void Start()
     {
+      
         if (!QuickSaveReader.RootExists("Stats"))
         {
             writer = QuickSaveWriter.Create("Stats");
@@ -95,6 +97,20 @@ public class PlayerStats : MonoBehaviour
     public void UpdatePlayerStats()
     {
         text.text = "Strength: " + strength + "\nDefence: " + defense + "\nMagic Damage: " + magicDamage + "\nSpeed: " + speed;
+    }
+
+    public void ResetStats()
+    {
+        writer.Write("Strength", 1);
+        writer.Write("Defense", 1);
+        writer.Write("Magic Damage", 1);
+        writer.Write("Speed", 1);
+        writer.Commit();
+        strength = reader.Read<int>("Strength");
+        defense = reader.Read<int>("Defense");
+        magicDamage = reader.Read<int>("Magic Damage");
+        speed = reader.Read<int>("Speed");
+        UpdatePlayerStats();
     }
     public IEnumerator GetLogs(string token)
     {
