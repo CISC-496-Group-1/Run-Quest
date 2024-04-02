@@ -16,8 +16,16 @@ public class ItemScript : MonoBehaviour
     public string type;
 
     public GameObject itemUi;
-    public void AddItemToInventory()
+
+    public ItemScript(int itemId, string itemName, Sprite image, int strength, int defence, int speed, int magicDamage, string type)
     {
-        Inventory.addToInventory(this);
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.image = image;
+        this.strength = strength;
+        this.defence = defence;
+        this.speed = speed;
+        this.magicDamage = magicDamage;
+        this.type = type;
     }
 }

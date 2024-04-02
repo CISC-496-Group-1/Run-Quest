@@ -15,13 +15,30 @@ public class Chest : MonoBehaviour
     public Text dialogBoxText;
     public string signText;
 
+    private Inventory inventory;
+
     [SerializeField] private AudioSource readSoundEffect;
+
+    public int weaponId;
+    public string weaponName;
+    public Sprite itemImage;
+    public int strength;
+    public int defense;
+    public int speed;
+    public int magic;
+    public string type;
+
+    private ItemScript item;
+    private bool itemRecieved;
 
     // Start is called before the first frame update
     void Start()
     {
         i = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        item = new ItemScript(weaponId, weaponName, itemImage, strength, defense, speed, magic, type);
+        itemRecieved = false;
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -56,6 +73,11 @@ public class Chest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && isPlayerInChest)
         {
             p.ableToMove = false;
+            if (!itemRecieved)
+            {
+                itemRecieved= true;
+                inventory.addToInventory(item);
+            }
             if (!dialogBox.activeInHierarchy)
             {
                 dialogBox.SetActive(true);

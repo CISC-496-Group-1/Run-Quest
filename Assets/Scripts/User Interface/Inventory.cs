@@ -10,6 +10,13 @@ public class Inventory : MonoBehaviour
     public static List<ItemScript> equipped;
     public List<GameObject> logs;
 
+    public GameObject itemEquipImage1;
+    public GameObject itemEquipImage2;
+    public GameObject itemEquipImage3;
+    public GameObject itemEquipImage4;
+
+    public GameObject equipUI;
+
     public Font font;
     private PlayerStats playerStats;
     void Start()
@@ -43,10 +50,10 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public static void addToInventory(ItemScript item)
+    public void addToInventory(ItemScript item)
     {
         items.Add(item);
-
+        addItemToInventoryUI(item);
     }
     
     public bool canEquip(ItemScript item)
@@ -92,13 +99,12 @@ public class Inventory : MonoBehaviour
 
     public void addItemToInventoryUI(ItemScript item)
     {
-
+        
         GameObject newLog = new GameObject();
         GameObject imageComponent = new GameObject();
         GameObject textComponent = new GameObject();
         GameObject textComponent2 = new GameObject();
-        GameObject button = new GameObject();
-        GameObject buttonText = new GameObject();
+        GameObject equip = Instantiate(equipUI);
 
         newLog.AddComponent<RectTransform>();
         newLog.AddComponent<CanvasRenderer>();
@@ -118,42 +124,32 @@ public class Inventory : MonoBehaviour
         imageComponent.AddComponent<RectTransform>();
         imageComponent.GetComponent<Image>().sprite = item.image;
 
-        button.AddComponent<RectTransform>();
-        button.AddComponent<CanvasRenderer>();
-        button.AddComponent<Image>();
-        button.AddComponent<Button>();
 
-        buttonText.AddComponent<RectTransform>();
-        button.AddComponent<CanvasRenderer>();
-        buttonText.AddComponent<Text>();
-
-        string date = System.DateTime.Now.ToString();
-
-
-        textComponent.GetComponent<Text>().text = item.name;
+        textComponent.GetComponent<Text>().text = item.itemName;
 
         if (item.strength > 0)
         {
-            textComponent2.GetComponent<Text>().text += "Strength: " + item.strength + " ";
+            textComponent2.GetComponent<Text>().text += "Strength: " + item.strength + "\n";
         }
         
         if (item.defence > 0)
         {
-            textComponent2.GetComponent<Text>().text += "Defence: " + item.defence + " ";
+            textComponent2.GetComponent<Text>().text += "Defence: " + item.defence + "\n";
         }
 
         if (item.speed > 0)
         {
-            textComponent2.GetComponent<Text>().text += "Speed: " + item.speed + " ";
+            textComponent2.GetComponent<Text>().text += "Speed: " + item.speed + "\n";
         }
 
         if (item.magicDamage > 0)
         {
-            textComponent2.GetComponent<Text>().text += "Magic Damage: " + item.magicDamage + " ";
+            textComponent2.GetComponent<Text>().text += "Magic Damage: " + item.magicDamage;
         }
-        buttonText.GetComponent<Text>().text = "Equip";
 
         imageComponent.transform.parent = newLog.transform;
+
+        newLog.GetComponent<RectTransform>().sizeDelta = new Vector2(474.062f, 54.9176f);
 
         textComponent.transform.parent = newLog.transform;
         textComponent.GetComponent<Text>().font = font;
@@ -169,15 +165,11 @@ public class Inventory : MonoBehaviour
         textComponent2.GetComponent<Text>().fontStyle = FontStyle.Bold;
         textComponent2.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
 
-        buttonText.transform.parent = button.transform;
-        buttonText.GetComponent<Text>().font = font;
-        buttonText.GetComponent<Text>().color = new Color32(0, 0, 0, 255);
-        buttonText.GetComponent<RectTransform>().sizeDelta = new Vector2(160f, 55f);
-        buttonText.GetComponent<Text>().fontStyle = FontStyle.Bold;
-        buttonText.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
-
-        button.GetComponent<Image>().color = new Color32(0, 243, 1, 255);
-        button.transform.parent = newLog.transform;
+        equip.transform.parent = newLog.transform;
+        equip.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            equipItem(item);
+        });
 
         logs.Add(newLog);
 
