@@ -35,6 +35,14 @@ public class Inventory : MonoBehaviour
             playerStats.addDefense(item.defence);
             playerStats.addMagicDamage(item.magicDamage);
             playerStats.addSpeed(item.speed);
+
+            if (item.type == "weapon")
+            {
+                itemEquipImage1.GetComponent<Image>().sprite = item.image;
+            } else
+            {
+                itemEquipImage3.GetComponent<Image>().sprite = item.image;
+            }
         }
     }
 

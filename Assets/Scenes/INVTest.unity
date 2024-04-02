@@ -3159,14 +3159,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9529412, b: 0.003921569, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300034, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4663,14 +4663,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9529412, b: 0.003921569, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f62449d251afcc44a8d2ae2c988c5d40, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5628,7 +5628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &500246386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6044,8 +6044,15 @@ MonoBehaviour:
   dialogBox: {fileID: 2136149417}
   dialogBoxText: {fileID: 0}
   signText: You Found The Snow Villa Key!
-  itemImage: {fileID: 0}
   readSoundEffect: {fileID: 545419568}
+  weaponId: 0
+  weaponName: 
+  itemImage: {fileID: 0}
+  strength: 0
+  defense: 0
+  speed: 0
+  magic: 0
+  type: 
 --- !u!82 &545419568
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9092,14 +9099,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9529412, b: 0.003921569, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: beb419bf89159374aa609b32827d3fca, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10927,8 +10934,15 @@ MonoBehaviour:
   dialogBox: {fileID: 2136149417}
   dialogBoxText: {fileID: 0}
   signText: You Found The Snow Villa Key!
-  itemImage: {fileID: 0}
   readSoundEffect: {fileID: 855294409}
+  weaponId: 0
+  weaponName: 
+  itemImage: {fileID: 0}
+  strength: 0
+  defense: 0
+  speed: 0
+  magic: 0
+  type: 
 --- !u!82 &855294409
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18636,8 +18650,15 @@ MonoBehaviour:
   dialogBox: {fileID: 2136149417}
   dialogBoxText: {fileID: 0}
   signText: You Found The Snow Villa Key!
-  itemImage: {fileID: 0}
   readSoundEffect: {fileID: 1402137561}
+  weaponId: 0
+  weaponName: 
+  itemImage: {fileID: 0}
+  strength: 0
+  defense: 0
+  speed: 0
+  magic: 0
+  type: 
 --- !u!82 &1402137561
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20002,8 +20023,15 @@ MonoBehaviour:
   dialogBox: {fileID: 2136149417}
   dialogBoxText: {fileID: 1943023115}
   signText: 
-  itemImage: {fileID: 0}
   readSoundEffect: {fileID: 1469344401}
+  weaponId: 0
+  weaponName: 
+  itemImage: {fileID: 0}
+  strength: 0
+  defense: 0
+  speed: 0
+  magic: 0
+  type: 
 --- !u!82 &1469344401
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21015,6 +21043,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InvUI: {fileID: 1075359465}
   logs: []
+  itemEquipImage1: {fileID: 400351005}
+  itemEquipImage2: {fileID: 243608435}
+  itemEquipImage3: {fileID: 1897453327}
+  itemEquipImage4: {fileID: 700111409}
   equipUI: {fileID: 1790207318561372378, guid: efd4c2bac5749bb4d9027a0341290f30, type: 3}
   font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1504989037
@@ -23087,9 +23119,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 1307362124}
     m_Modifications:
     - target: {fileID: -712932298839617986, guid: 53f6e362b8eaf2245990934dadc7a6ca, type: 3}
+      propertyPath: type
+      value: weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: -712932298839617986, guid: 53f6e362b8eaf2245990934dadc7a6ca, type: 3}
+      propertyPath: magic
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -712932298839617986, guid: 53f6e362b8eaf2245990934dadc7a6ca, type: 3}
+      propertyPath: strength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -712932298839617986, guid: 53f6e362b8eaf2245990934dadc7a6ca, type: 3}
+      propertyPath: weaponId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -712932298839617986, guid: 53f6e362b8eaf2245990934dadc7a6ca, type: 3}
       propertyPath: dialogBox
       value: 
       objectReference: {fileID: 2136149417}
+    - target: {fileID: -712932298839617986, guid: 53f6e362b8eaf2245990934dadc7a6ca, type: 3}
+      propertyPath: itemImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+    - target: {fileID: -712932298839617986, guid: 53f6e362b8eaf2245990934dadc7a6ca, type: 3}
+      propertyPath: weaponName
+      value: Elemental Sword
+      objectReference: {fileID: 0}
     - target: {fileID: -712932298839617986, guid: 53f6e362b8eaf2245990934dadc7a6ca, type: 3}
       propertyPath: dialogBoxText
       value: 
@@ -25563,8 +25619,15 @@ MonoBehaviour:
   dialogBox: {fileID: 2136149417}
   dialogBoxText: {fileID: 1943023115}
   signText: You Found the Lava Helmet!
-  itemImage: {fileID: 0}
   readSoundEffect: {fileID: 1720400998}
+  weaponId: 0
+  weaponName: 
+  itemImage: {fileID: 0}
+  strength: 0
+  defense: 0
+  speed: 0
+  magic: 0
+  type: 
 --- !u!82 &1720400998
 AudioSource:
   m_ObjectHideFlags: 0
@@ -26738,8 +26801,15 @@ MonoBehaviour:
   dialogBox: {fileID: 2136149417}
   dialogBoxText: {fileID: 0}
   signText: You Found The Snow Villa Key!
-  itemImage: {fileID: 0}
   readSoundEffect: {fileID: 1849253653}
+  weaponId: 0
+  weaponName: 
+  itemImage: {fileID: 0}
+  strength: 0
+  defense: 0
+  speed: 0
+  magic: 0
+  type: 
 --- !u!82 &1849253653
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53415,14 +53485,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9529412, b: 0.003921569, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300026, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
