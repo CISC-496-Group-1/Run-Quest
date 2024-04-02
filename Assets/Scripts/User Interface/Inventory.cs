@@ -38,10 +38,25 @@ public class Inventory : MonoBehaviour
 
             if (item.type == "weapon")
             {
-                itemEquipImage1.GetComponent<Image>().sprite = item.image;
+                if (itemEquipImage1.GetComponent<Image>().sprite == null)
+                {
+                    itemEquipImage1.GetComponent<Image>().sprite = item.image;
+                }
+                else
+                {
+                    itemEquipImage4.GetComponent<Image>().sprite = item.image;
+                }
             } else
             {
-                itemEquipImage3.GetComponent<Image>().sprite = item.image;
+                if (itemEquipImage3.GetComponent<Image>().sprite == null)
+                {
+                    itemEquipImage3.GetComponent<Image>().sprite = item.image;
+                }
+                else
+                {
+                    itemEquipImage2.GetComponent<Image>().sprite = item.image;
+                }
+                    
             }
         }
     }
