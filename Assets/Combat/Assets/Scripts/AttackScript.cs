@@ -56,7 +56,7 @@ public class AttackScript : MonoBehaviour
             {
                 GameManager.Instance.DefeatEnemy(victim.name);
 
-                SceneManager.LoadScene("SettingMenu");
+                SceneManager.LoadScene("SHOWCASE");
             }
             attackerStats.updateMagicFill(magicCost);
         } else

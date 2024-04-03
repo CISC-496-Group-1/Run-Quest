@@ -13,7 +13,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float runToGameDistScale = 0.25f;
 
-    public Text distanceText; 
+    public Text distanceText;
+    public GameObject Reminder;
+    public GameObject distButton;
 
     Vector2 lastClickedPos;
 
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     private LogScript log;
     private PlayerStats stats;
+    private Image butt;
 
     private void Start()
     {
@@ -155,6 +158,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (distanceText != null)
             distanceText.text = "Distance: " + currentTravelDistance.ToString("F2") + " KM"; // Format the distance display
+        if (currentTravelDistance < 0.01f)
+        {
+             butt = distButton.GetComponent<Image>();
+            butt.color = new Color(255, 0, 0, 1);
+            Reminder.SetActive(true);
+        }
+        if (currentTravelDistance > 0.01)
+        {
+            butt = distButton.GetComponent<Image>();
+            butt.color = new Color(255, 255, 255, 1);
+            Reminder.SetActive(false);
+        }
+
     }
 
     public void changeScale(float scalefactor)

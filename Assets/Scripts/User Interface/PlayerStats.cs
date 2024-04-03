@@ -59,6 +59,7 @@ public class PlayerStats : MonoBehaviour
         strength += amountToAdd;
          writer.Write("Strength", strength);
          writer.Commit();
+        UpdatePlayerStats();
 
     }
 
