@@ -5,18 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SHOWCASE.unity
+    guid: af3ce2475c56c92439f14e9fcb1e0c07
   - enabled: 0
     path: Assets/Scenes/PreDemoBuilds/zhoujun 1.unity
     guid: 2440d447d4504374fad63aa365fb41db
   - enabled: 1
     path: Assets/Scenes/combat.unity
     guid: a65cd7ee90f8f0a4bb08e93a5849bcac
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MergerDEMO.unity
     guid: 5dd0017d3d08bef4cbe39f44368b48f0
   - enabled: 1
     path: Assets/Scenes/combat Ghost.unity
-    guid: 66f529f8e5b90bf468d3ce9b2cadcc32
+    guid: e9e2ece252fff7549a3dc49507f8f791
   - enabled: 1
     path: Assets/Scenes/combat Boar.unity
     guid: 95239342d647e33439e5cdeb5d443324
@@ -29,10 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/combat Dragon.unity
     guid: 5f369be33a9f32148b6e4b922c2daecf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WEEK10.unity
     guid: 9fa83f4ce4368d44c916d83f0c7e8805
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SettingMenu.unity
     guid: ea4fd89c7896dcc4fa964b5bc30415a5
   m_configObjects: {}
