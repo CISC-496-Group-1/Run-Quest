@@ -154,6 +154,32 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Distance added. Current distance: " + currentTravelDistance);
     }
 
+    public void AddDistanceWithoutLogs(float amount)
+    {
+        currentTravelDistance += amount;
+        if (currentTravelDistance > maxTravelDistance)
+            currentTravelDistance = maxTravelDistance;
+
+        if (currentTravelDistance < minTravelDistance)
+            currentTravelDistance = minTravelDistance;
+
+        if (amount == 1.0f)
+        {
+            stats.GenerateStats(1, 3);
+
+        }
+        else if (amount == 2.0f)
+        {
+            stats.GenerateStats(3, 5);
+        }
+        else
+        {
+            stats.GenerateStats(5, 7);
+        }
+
+        Debug.Log("Distance added. Current distance: " + currentTravelDistance);
+    }
+
     private void UpdateDistanceText()
     {
         if (distanceText != null)
